@@ -7,13 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		346DEC8BF3745E06B5B2420C /* Pods_Personal_BudgetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FA2AF0E35B20F0474771DA /* Pods_Personal_BudgetTests.framework */; };
+		3E45DAFF23B21878A500F6FF /* Pods_Personal_BudgetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945FF86BA231ED3FFD52C02D /* Pods_Personal_BudgetUITests.framework */; };
+		858684A11E57BEF418D2FC28 /* Pods_Personal_Budget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420E49C9770317A2477DD894 /* Pods_Personal_Budget.framework */; };
 		F20F1C511F94273A00059BAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20F1C501F94273A00059BAA /* AppDelegate.swift */; };
-		F20F1C531F94273A00059BAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20F1C521F94273A00059BAA /* ViewController.swift */; };
 		F20F1C561F94273A00059BAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F20F1C541F94273A00059BAA /* Main.storyboard */; };
 		F20F1C581F94273A00059BAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F20F1C571F94273A00059BAA /* Assets.xcassets */; };
 		F20F1C5B1F94273A00059BAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F20F1C591F94273A00059BAA /* LaunchScreen.storyboard */; };
 		F20F1C661F94273A00059BAA /* Personal_BudgetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20F1C651F94273A00059BAA /* Personal_BudgetTests.swift */; };
 		F20F1C711F94273A00059BAA /* Personal_BudgetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20F1C701F94273A00059BAA /* Personal_BudgetUITests.swift */; };
+		F24636E91F99924C00B5EB2D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24636E81F99924B00B5EB2D /* LoginViewController.swift */; };
+		F24636F11F99B75B00B5EB2D /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24636F01F99B75B00B5EB2D /* MainMenuController.swift */; };
+		F24636F31F99CA3B00B5EB2D /* AddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24636F21F99CA3B00B5EB2D /* AddController.swift */; };
+		F24636F61F9AC4AF00B5EB2D /* NewAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24636F51F9AC4AF00B5EB2D /* NewAccountController.swift */; };
+		F2BEB1B11F9D4E4600A3BFD6 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BEB1B01F9D4E4600A3BFD6 /* DataBase.swift */; };
+		F2F85FAB1FA7AE43005E2474 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2F85FAA1FA7AE43005E2474 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +42,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0227ED621DD256AC877B3275 /* Pods-Personal Budget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal Budget.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal Budget/Pods-Personal Budget.release.xcconfig"; sourceTree = "<group>"; };
+		04FA2AF0E35B20F0474771DA /* Pods_Personal_BudgetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Personal_BudgetTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D1120DF4B55C8D79DE3137F /* Pods-Personal BudgetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal BudgetTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Personal BudgetTests/Pods-Personal BudgetTests.debug.xcconfig"; sourceTree = "<group>"; };
+		25A95D03A8BC7E38F354A954 /* Pods-Personal Budget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal Budget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Personal Budget/Pods-Personal Budget.debug.xcconfig"; sourceTree = "<group>"; };
+		420E49C9770317A2477DD894 /* Pods_Personal_Budget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Personal_Budget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7394AC932BC09C316E6F02B6 /* Pods-Personal BudgetTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal BudgetTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal BudgetTests/Pods-Personal BudgetTests.release.xcconfig"; sourceTree = "<group>"; };
+		945FF86BA231ED3FFD52C02D /* Pods_Personal_BudgetUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Personal_BudgetUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC9D371D7DF321D629C1A7C8 /* Pods-Personal BudgetUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal BudgetUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal BudgetUITests/Pods-Personal BudgetUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EC8C542310FA05C808D04863 /* Pods-Personal BudgetUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal BudgetUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Personal BudgetUITests/Pods-Personal BudgetUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F20F1C4D1F94273A00059BAA /* Personal Budget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal Budget.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F20F1C501F94273A00059BAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F20F1C521F94273A00059BAA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F20F1C551F94273A00059BAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F20F1C571F94273A00059BAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F20F1C5A1F94273A00059BAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +63,12 @@
 		F20F1C6C1F94273A00059BAA /* Personal BudgetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Personal BudgetUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F20F1C701F94273A00059BAA /* Personal_BudgetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personal_BudgetUITests.swift; sourceTree = "<group>"; };
 		F20F1C721F94273A00059BAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F24636E81F99924B00B5EB2D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F24636F01F99B75B00B5EB2D /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
+		F24636F21F99CA3B00B5EB2D /* AddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddController.swift; sourceTree = "<group>"; };
+		F24636F51F9AC4AF00B5EB2D /* NewAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountController.swift; sourceTree = "<group>"; };
+		F2BEB1B01F9D4E4600A3BFD6 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
+		F2F85FAA1FA7AE43005E2474 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				858684A11E57BEF418D2FC28 /* Pods_Personal_Budget.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				346DEC8BF3745E06B5B2420C /* Pods_Personal_BudgetTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +92,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E45DAFF23B21878A500F6FF /* Pods_Personal_BudgetUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC28B43BF09B7B0563AA0BF6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				420E49C9770317A2477DD894 /* Pods_Personal_Budget.framework */,
+				04FA2AF0E35B20F0474771DA /* Pods_Personal_BudgetTests.framework */,
+				945FF86BA231ED3FFD52C02D /* Pods_Personal_BudgetUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C036EE9B047E6446DC91A5DC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				25A95D03A8BC7E38F354A954 /* Pods-Personal Budget.debug.xcconfig */,
+				0227ED621DD256AC877B3275 /* Pods-Personal Budget.release.xcconfig */,
+				0D1120DF4B55C8D79DE3137F /* Pods-Personal BudgetTests.debug.xcconfig */,
+				7394AC932BC09C316E6F02B6 /* Pods-Personal BudgetTests.release.xcconfig */,
+				EC8C542310FA05C808D04863 /* Pods-Personal BudgetUITests.debug.xcconfig */,
+				AC9D371D7DF321D629C1A7C8 /* Pods-Personal BudgetUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F20F1C441F94273A00059BAA = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +129,8 @@
 				F20F1C641F94273A00059BAA /* Personal BudgetTests */,
 				F20F1C6F1F94273A00059BAA /* Personal BudgetUITests */,
 				F20F1C4E1F94273A00059BAA /* Products */,
+				C036EE9B047E6446DC91A5DC /* Pods */,
+				BC28B43BF09B7B0563AA0BF6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,11 +147,12 @@
 		F20F1C4F1F94273A00059BAA /* Personal Budget */ = {
 			isa = PBXGroup;
 			children = (
+				F2BEB1AF1F9D4E3200A3BFD6 /* Swift Classes */,
+				F24636F71F9AC51000B5EB2D /* StoryBoards */,
+				F24636F41F9AC38200B5EB2D /* View Controllers */,
 				F20F1C501F94273A00059BAA /* AppDelegate.swift */,
-				F20F1C521F94273A00059BAA /* ViewController.swift */,
-				F20F1C541F94273A00059BAA /* Main.storyboard */,
 				F20F1C571F94273A00059BAA /* Assets.xcassets */,
-				F20F1C591F94273A00059BAA /* LaunchScreen.storyboard */,
+				F2F85FAA1FA7AE43005E2474 /* GoogleService-Info.plist */,
 				F20F1C5C1F94273A00059BAA /* Info.plist */,
 			);
 			path = "Personal Budget";
@@ -125,6 +176,34 @@
 			path = "Personal BudgetUITests";
 			sourceTree = "<group>";
 		};
+		F24636F41F9AC38200B5EB2D /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F24636F01F99B75B00B5EB2D /* MainMenuController.swift */,
+				F24636E81F99924B00B5EB2D /* LoginViewController.swift */,
+				F24636F21F99CA3B00B5EB2D /* AddController.swift */,
+				F24636F51F9AC4AF00B5EB2D /* NewAccountController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		F24636F71F9AC51000B5EB2D /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				F20F1C541F94273A00059BAA /* Main.storyboard */,
+				F20F1C591F94273A00059BAA /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		F2BEB1AF1F9D4E3200A3BFD6 /* Swift Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F2BEB1B01F9D4E4600A3BFD6 /* DataBase.swift */,
+			);
+			path = "Swift Classes";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +211,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F20F1C751F94273A00059BAA /* Build configuration list for PBXNativeTarget "Personal Budget" */;
 			buildPhases = (
+				C89D4CE1EF877E32BDB63CF7 /* [CP] Check Pods Manifest.lock */,
 				F20F1C491F94273A00059BAA /* Sources */,
 				F20F1C4A1F94273A00059BAA /* Frameworks */,
 				F20F1C4B1F94273A00059BAA /* Resources */,
+				0EEE1620A13D7168A1CEF0E6 /* [CP] Embed Pods Frameworks */,
+				5F32BEBEB3AE0760518C12EF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +231,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F20F1C781F94273A00059BAA /* Build configuration list for PBXNativeTarget "Personal BudgetTests" */;
 			buildPhases = (
+				B7C9CC94D7B22D6F608058ED /* [CP] Check Pods Manifest.lock */,
 				F20F1C5D1F94273A00059BAA /* Sources */,
 				F20F1C5E1F94273A00059BAA /* Frameworks */,
 				F20F1C5F1F94273A00059BAA /* Resources */,
+				837FA0C38A97C0F361789C38 /* [CP] Embed Pods Frameworks */,
+				869743034B5C5332BDB40175 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +252,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F20F1C7B1F94273A00059BAA /* Build configuration list for PBXNativeTarget "Personal BudgetUITests" */;
 			buildPhases = (
+				8DDC7E6396171D08E12E2F0E /* [CP] Check Pods Manifest.lock */,
 				F20F1C681F94273A00059BAA /* Sources */,
 				F20F1C691F94273A00059BAA /* Frameworks */,
 				F20F1C6A1F94273A00059BAA /* Resources */,
+				9134978C860245EA54347250 /* [CP] Embed Pods Frameworks */,
+				810C7AED355647A69ED5324D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -233,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F20F1C5B1F94273A00059BAA /* LaunchScreen.storyboard in Resources */,
+				F2F85FAB1FA7AE43005E2474 /* GoogleService-Info.plist in Resources */,
 				F20F1C581F94273A00059BAA /* Assets.xcassets in Resources */,
 				F20F1C561F94273A00059BAA /* Main.storyboard in Resources */,
 			);
@@ -254,13 +343,178 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0EEE1620A13D7168A1CEF0E6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Personal Budget/Pods-Personal Budget-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Personal Budget/Pods-Personal Budget-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5F32BEBEB3AE0760518C12EF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Personal Budget/Pods-Personal Budget-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Personal Budget/Pods-Personal Budget-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		810C7AED355647A69ED5324D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Personal BudgetUITests/Pods-Personal BudgetUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		837FA0C38A97C0F361789C38 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Personal BudgetTests/Pods-Personal BudgetTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		869743034B5C5332BDB40175 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Personal BudgetTests/Pods-Personal BudgetTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8DDC7E6396171D08E12E2F0E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Personal BudgetUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9134978C860245EA54347250 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Personal BudgetUITests/Pods-Personal BudgetUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7C9CC94D7B22D6F608058ED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Personal BudgetTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C89D4CE1EF877E32BDB63CF7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Personal Budget-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F20F1C491F94273A00059BAA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F20F1C531F94273A00059BAA /* ViewController.swift in Sources */,
+				F24636E91F99924C00B5EB2D /* LoginViewController.swift in Sources */,
+				F24636F61F9AC4AF00B5EB2D /* NewAccountController.swift in Sources */,
 				F20F1C511F94273A00059BAA /* AppDelegate.swift in Sources */,
+				F24636F11F99B75B00B5EB2D /* MainMenuController.swift in Sources */,
+				F2BEB1B11F9D4E4600A3BFD6 /* DataBase.swift in Sources */,
+				F24636F31F99CA3B00B5EB2D /* AddController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,13 +678,18 @@
 		};
 		F20F1C761F94273A00059BAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25A95D03A8BC7E38F354A954 /* Pods-Personal Budget.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B6CP63MQWE;
 				INFOPLIST_FILE = "Personal Budget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.box.Personal-Budget";
+				PRODUCT_BUNDLE_IDENTIFIER = "Box.Personal-Budget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -438,13 +697,18 @@
 		};
 		F20F1C771F94273A00059BAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0227ED621DD256AC877B3275 /* Pods-Personal Budget.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B6CP63MQWE;
 				INFOPLIST_FILE = "Personal Budget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.box.Personal-Budget";
+				PRODUCT_BUNDLE_IDENTIFIER = "Box.Personal-Budget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -452,6 +716,7 @@
 		};
 		F20F1C791F94273A00059BAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D1120DF4B55C8D79DE3137F /* Pods-Personal BudgetTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -468,6 +733,7 @@
 		};
 		F20F1C7A1F94273A00059BAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7394AC932BC09C316E6F02B6 /* Pods-Personal BudgetTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -484,6 +750,7 @@
 		};
 		F20F1C7C1F94273A00059BAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC8C542310FA05C808D04863 /* Pods-Personal BudgetUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -499,6 +766,7 @@
 		};
 		F20F1C7D1F94273A00059BAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC9D371D7DF321D629C1A7C8 /* Pods-Personal BudgetUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
