@@ -6,6 +6,10 @@
 //  Copyright © 2017 Zach Bockskopf. All rights reserved.
 //
 
+
+/* This controller is used to add transctions to spendings */
+
+
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
@@ -35,7 +39,7 @@ class AddController: UIViewController, UITextFieldDelegate, UITableViewDataSourc
 
         uid = (Auth.auth().currentUser?.uid)!
         //self.amountField.keyboardType = UIKeyboardType.numberPad
-        setupAlert()
+
         populateArray()
         
         
@@ -47,15 +51,22 @@ class AddController: UIViewController, UITextFieldDelegate, UITableViewDataSourc
     
     
     func setupAlert() {
+        
         alert.title = selectedCategory
         alert.addTextField { (textfield) in
+            textfield.placeholder = "Description"
+        }
+        alert.addTextField { (textfield) in
             textfield.placeholder = "Amount"
+            
+            //textfield.keyboardType = .numberPad
         }
         alert.addAction(UIAlertAction(title: "ok", style: .default, handler: { [weak alert](_) in
-            let tf = alert?.textFields![0]
-            tf?.keyboardType = .numberPad
-            
-            self.db.addToCategory(category: self.selectedCategory, changeAmount: (tf?.text)!)
+            let descrptionTF = alert?.textFields![0]
+            let amountTF = alert?.textFields![1]
+            self.db.addToCategory(category: self.selectedCategory, changeAmount: (amountTF?.text)!)
+            self.db.addToSpendings(description: (descrptionTF?.text)!, category: self.selectedCategory, Amount: (amountTF?.text)!)
+
             //makeChanges(selectedCategory: self.selectedCategory, category: <#String#>, changeAmount: <#String#>, subcat: <#String?#>)
         }))
 
@@ -94,6 +105,7 @@ class AddController: UIViewController, UITextFieldDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedCategory = String(describing: allChildren[indexPath.row])
+        setupAlert()
         self.present(alert, animated: true, completion: nil)
     }
 }

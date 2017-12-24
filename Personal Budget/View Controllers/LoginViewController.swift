@@ -216,7 +216,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
     
     @objc func loginBtnClick() {
         self.performSegue(withIdentifier: "goToNewAccount", sender: nil)
-        //loginRegister()
+        loginRegister()
     }
     
 

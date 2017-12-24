@@ -46,6 +46,35 @@
             </objects>
             <point key="canvasLocation" x="2297" y="-663"/>
         </scene>
+        <!--Spendings Controller-->
+        <scene sceneID="Qsk-ze-CgR">
+            <objects>
+                <viewController id="f2F-3Z-olZ" customClass="SpendingsController" customModule="Personal_Budget" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qcB-iM-ZBG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qbd-A5-jH5">
+                                <rect key="frame" x="16" y="154" width="343" height="358"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="f2F-3Z-olZ" id="hbR-sF-b3x"/>
+                                    <outlet property="delegate" destination="f2F-3Z-olZ" id="NkC-pB-Rk5"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="jhA-YS-VbF"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="qbd-A5-jH5" id="MI6-Iy-BeB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dr4-cs-3Am" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3133" y="-647"/>
+        </scene>
         <!--Main Menu Controller-->
         <scene sceneID="c54-HV-Dzl">
             <objects>
@@ -148,7 +177,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" id="9u8-9U-xJ8">
                             <connections>
-                                <segue destination="tB5-Ex-Eu3" kind="show" id="eV5-Se-Aft"/>
+                                <segue destination="tB5-Ex-Eu3" kind="show" id="9YU-YT-xxB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -161,11 +190,13 @@
                         <outlet property="sideMenuLeadingConstraint" destination="0pF-7v-3u6" id="zFa-nI-DUO"/>
                         <outlet property="sideMenuTable" destination="dhl-oB-gXA" id="l5I-HL-uBc"/>
                         <segue destination="87w-Js-czn" kind="presentation" identifier="goToLoginScreen" modalPresentationStyle="overCurrentContext" id="04O-m8-Teq"/>
+                        <segue destination="f2F-3Z-olZ" kind="show" identifier="goToSpendings" id="Flv-XP-lGg"/>
+                        <segue destination="QQg-MZ-mJ2" kind="show" identifier="goToNewMonth" id="tLT-OC-Xy0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="urR-Dn-kjW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2298" y="87"/>
+            <point key="canvasLocation" x="2370" y="98"/>
         </scene>
         <!--Add Controller-->
         <scene sceneID="BiN-5V-q6z">
@@ -225,5 +256,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="unK-nk-RpT"/>
+        <segue reference="tLT-OC-Xy0"/>
     </inferredMetricsTieBreakers>
 </document>
