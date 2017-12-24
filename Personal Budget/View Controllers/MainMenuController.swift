@@ -51,7 +51,7 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
 //        db.getMonth { (month) in
 //            currentMonth = month!
 //        }
-        db.addToSpendings(description: "test item", category: "Cash", Amount: "1000.00")
+        //db.addToSpendings(description: "test item", category: "Cash", Amount: "1000.00")
         
         
         

@@ -152,37 +152,47 @@ class DataBase {
         let date = Date()
         let formater = DateFormatter()
         
-        self.ref.child("Spendings").child(self.uid!).child(self.currentMonth).child(description).child(category).setValue(Amount)
+        self.ref.child("Spendings").child(self.uid!).child(self.currentMonth).child(description).child("Amount").setValue(Amount)
 
         formater.dateFormat = "MM/dd"
         let result = formater.string(from: date)
         self.ref.child("Spendings").child(self.uid!).child(self.currentMonth).child(description).child("Date").setValue(result)
         
         
-//        if(Amount < 0){
-//            self.ref.child("Spendings").child(self.uid!).child(self.currentMonth).child(description).child("sign").setValue("+")
-//        }else{
-//            self.ref.child("Spendings").child(self.uid!).child(self.currentMonth).child(description).child("sign").setValue("-")
-//        }
-    
-        
         }
+    func getAmountDates(completion: @escaping (Array<String>, Array<String>) -> Void, description: String) {
+        var amountArray: Array<String> = []
+        var dateArray: Array<String> = []
+        self.ref.child("Spendings").child(self.uid!).child(self.currentMonth).child("Tacos").observeSingleEvent(of: .value) { (snapshot) in
+            let value = snapshot.value as! NSDictionary
+            let amount = value["Amount"] as! Double
+            let date = value["Date"] as! String
+            var amountVal = String(amount)
+
+            amountArray.append(amountVal)
+            dateArray.append(date)
+            print("FUN SHIT",amountArray, dateArray)
+            completion(amountArray, dateArray)
+        }
+        
+    }
     
     func getAllTransactions(completion: @escaping (Array<String>) -> Void) {
         self.ref.child("Spendings").child(uid!).child(currentMonth).observeSingleEvent(of: .value) { (snapshot) in
             let enumerator = snapshot.children
-            var childrenArray: Array<String> = []
+            var descriptionArray: Array<String> = []
             while let rest = enumerator.nextObject() as? DataSnapshot {
                 //if rest.value == nil {
-                childrenArray.append(rest.key)
+                descriptionArray.append(rest.key)
+
                 //}
                 
             }
-            completion(childrenArray)
+            completion(descriptionArray)
         }
     }
-        
-    }
+    
+}
 
     
 

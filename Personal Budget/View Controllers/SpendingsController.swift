@@ -23,17 +23,44 @@ class SpendingsController: UIViewController, UITableViewDataSource, UITableViewD
         return l
     }()
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var descriptionTable: UITableView!
+    @IBOutlet weak var amountTable: UITableView!
+    @IBOutlet weak var dateTable: UITableView!
+    
+    
     var db = DataBase()
-    var allTransactions: Array<String> = []
+    var allDescriptions: Array<String> = []
+    var allAmount: Array<String> = []
+    var allDates: Array<String> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(label)
-        db.getAllTransactions { (all) in
-            self.allTransactions = all
+        populateTable()
+
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
+    
+    func populateTable() {
+        
+        db.getAllTransactions { (description) in
+            self.allDescriptions = description
+            for des in self.allDescriptions {
+                self.db.getAmountDates(completion: { (amounts, dates) in
+                    self.allAmount = amounts
+                    self.allDates = dates
+                    DispatchQueue.main.async{
+                        self.amountTable.reloadData()
+                        self.dateTable.reloadData()
+                    }
+                }, description: des)
+            }
             DispatchQueue.main.async{
-                self.tableView.reloadData()
+                self.descriptionTable.reloadData()
             }
         }
     }
@@ -46,8 +73,18 @@ class SpendingsController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         //return sideMenuArray.count
+        if tableView == descriptionTable {
+            return allDescriptions.count
+        }
+        if tableView == amountTable{
+            return allAmount.count
+        }
+        if tableView == dateTable{
+            return allDates.count
+        }
         
-        return allTransactions.count
+        return 1
+        
     }
     
     
@@ -55,8 +92,20 @@ class SpendingsController: UIViewController, UITableViewDataSource, UITableViewD
         
         let cell = UITableViewCell()
         
-        //cell.textLabel?.text = String(describing: sideMenuArray[indexPath.row])
-        cell.textLabel?.text = String(describing: allTransactions[indexPath.row])
+        
+        if tableView == descriptionTable{
+            cell.textLabel?.text = String(describing: allDescriptions[indexPath.row])
+        }
+        
+        if tableView == amountTable{
+            cell.textLabel?.text = String(describing: allAmount[indexPath.row])
+        }
+        
+        if tableView == dateTable{
+            cell.textLabel?.text = String(describing: allDates[indexPath.row])
+        }
+        
+        
         return cell
     }
     

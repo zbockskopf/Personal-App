@@ -230,9 +230,12 @@ class LogInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
     
 //Login User
     func loginUser() {
-        guard let email = emailTextField.text, let password = passwordTextField.text else {
-            return
-        }
+//        guard let email = emailTextField.text, let password = passwordTextField.text else {
+//            return
+//        }
+        
+        let email = "test@test.com"
+        let password = "123test"
         
         if email != "" && password != "" {
             Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
