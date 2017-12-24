@@ -16,7 +16,9 @@ class DataBase {
     }
     
     private var uid: String? = (Auth.auth().currentUser?.uid)!
-    private var currentMonth: String = "November 2017"
+    private var currentMonth: String = "January 2018"
+    
+    
     
     
     func checkIfUserIsLoggedIn() -> Bool {
@@ -91,6 +93,7 @@ class DataBase {
         self.ref.child("Current Month").observeSingleEvent(of: .value) { (snapshot) in
             let value = snapshot.value as! NSDictionary
             let month = value[self.uid!] as? String
+            self.currentMonth = month!
             completion(month)
         }
     }
@@ -140,4 +143,46 @@ class DataBase {
 
     }
     
-}
+    
+    
+/*---------------------Spendings Functions------------------------*/
+    func addToSpendings(description: String, category: String, Amount: String) {
+        //var categoryAmount: Double = 0
+        let Amount = Double(Amount)!
+        let date = Date()
+        let formater = DateFormatter()
+        
+        self.ref.child("Spendings").child(self.uid!).child(self.currentMonth).child(description).child(category).setValue(Amount)
+
+        formater.dateFormat = "MM/dd"
+        let result = formater.string(from: date)
+        self.ref.child("Spendings").child(self.uid!).child(self.currentMonth).child(description).child("Date").setValue(result)
+        
+        
+//        if(Amount < 0){
+//            self.ref.child("Spendings").child(self.uid!).child(self.currentMonth).child(description).child("sign").setValue("+")
+//        }else{
+//            self.ref.child("Spendings").child(self.uid!).child(self.currentMonth).child(description).child("sign").setValue("-")
+//        }
+    
+        
+        }
+    
+    func getAllTransactions(completion: @escaping (Array<String>) -> Void) {
+        self.ref.child("Spendings").child(uid!).child(currentMonth).observeSingleEvent(of: .value) { (snapshot) in
+            let enumerator = snapshot.children
+            var childrenArray: Array<String> = []
+            while let rest = enumerator.nextObject() as? DataSnapshot {
+                //if rest.value == nil {
+                childrenArray.append(rest.key)
+                //}
+                
+            }
+            completion(childrenArray)
+        }
+    }
+        
+    }
+
+    
+

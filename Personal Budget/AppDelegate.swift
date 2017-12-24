@@ -82,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate  {
                     return
                 }
 
-                print("Saved user into firebase")
+                //print("Saved user into firebase")
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let mainMenuController = storyboard.instantiateViewController(withIdentifier: "mainMenu")
                 self.window!.rootViewController = mainMenuController
