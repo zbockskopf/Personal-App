@@ -20,6 +20,15 @@
 		F24636F11F99B75B00B5EB2D /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24636F01F99B75B00B5EB2D /* MainMenuController.swift */; };
 		F24636F31F99CA3B00B5EB2D /* AddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24636F21F99CA3B00B5EB2D /* AddController.swift */; };
 		F24636F61F9AC4AF00B5EB2D /* NewAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24636F51F9AC4AF00B5EB2D /* NewAccountController.swift */; };
+		F26ECDD51FF99B3C0026DA41 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F26ECDD31FF99B3C0026DA41 /* Interface.storyboard */; };
+		F26ECDD71FF99B3C0026DA41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F26ECDD61FF99B3C0026DA41 /* Assets.xcassets */; };
+		F26ECDDE1FF99B3C0026DA41 /* WK Personal App Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F26ECDDD1FF99B3C0026DA41 /* WK Personal App Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F26ECDE31FF99B3C0026DA41 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26ECDE21FF99B3C0026DA41 /* InterfaceController.swift */; };
+		F26ECDE51FF99B3C0026DA41 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26ECDE41FF99B3C0026DA41 /* ExtensionDelegate.swift */; };
+		F26ECDE71FF99B3C0026DA41 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26ECDE61FF99B3C0026DA41 /* NotificationController.swift */; };
+		F26ECDE91FF99B3C0026DA41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F26ECDE81FF99B3C0026DA41 /* Assets.xcassets */; };
+		F26ECDEE1FF99B3C0026DA41 /* WK Personal App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F26ECDD11FF99B3C0026DA41 /* WK Personal App.app */; };
+		F2777BE01FF9ACAA00A4FB6C /* WatchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2777BDF1FF9ACAA00A4FB6C /* WatchTable.swift */; };
 		F2AD7E8B1FEDA28F003D720D /* SpendingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AD7E8A1FEDA28F003D720D /* SpendingsController.swift */; };
 		F2BEB1B11F9D4E4600A3BFD6 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BEB1B01F9D4E4600A3BFD6 /* DataBase.swift */; };
 		F2F85FAB1FA7AE43005E2474 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2F85FAA1FA7AE43005E2474 /* GoogleService-Info.plist */; };
@@ -40,7 +49,46 @@
 			remoteGlobalIDString = F20F1C4C1F94273A00059BAA;
 			remoteInfo = "Personal Budget";
 		};
+		F26ECDDF1FF99B3C0026DA41 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F20F1C451F94273A00059BAA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F26ECDDC1FF99B3C0026DA41;
+			remoteInfo = "WK Personal App Extension";
+		};
+		F26ECDEC1FF99B3C0026DA41 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F20F1C451F94273A00059BAA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F26ECDD01FF99B3C0026DA41;
+			remoteInfo = "WK Personal App";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F26ECDF41FF99B3C0026DA41 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F26ECDDE1FF99B3C0026DA41 /* WK Personal App Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F26ECDF61FF99B3C0026DA41 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				F26ECDEE1FF99B3C0026DA41 /* WK Personal App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0227ED621DD256AC877B3275 /* Pods-Personal Budget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal Budget.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal Budget/Pods-Personal Budget.release.xcconfig"; sourceTree = "<group>"; };
@@ -68,6 +116,18 @@
 		F24636F01F99B75B00B5EB2D /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
 		F24636F21F99CA3B00B5EB2D /* AddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddController.swift; sourceTree = "<group>"; };
 		F24636F51F9AC4AF00B5EB2D /* NewAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountController.swift; sourceTree = "<group>"; };
+		F26ECDD11FF99B3C0026DA41 /* WK Personal App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WK Personal App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F26ECDD41FF99B3C0026DA41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		F26ECDD61FF99B3C0026DA41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F26ECDD81FF99B3C0026DA41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F26ECDDD1FF99B3C0026DA41 /* WK Personal App Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WK Personal App Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F26ECDE21FF99B3C0026DA41 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		F26ECDE41FF99B3C0026DA41 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		F26ECDE61FF99B3C0026DA41 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		F26ECDE81FF99B3C0026DA41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F26ECDEA1FF99B3C0026DA41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F26ECDEB1FF99B3C0026DA41 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		F2777BDF1FF9ACAA00A4FB6C /* WatchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchTable.swift; sourceTree = "<group>"; };
 		F2AD7E8A1FEDA28F003D720D /* SpendingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingsController.swift; sourceTree = "<group>"; };
 		F2BEB1B01F9D4E4600A3BFD6 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		F2F85FAA1FA7AE43005E2474 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -95,6 +155,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E45DAFF23B21878A500F6FF /* Pods_Personal_BudgetUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F26ECDDA1FF99B3C0026DA41 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +197,8 @@
 				F20F1C4F1F94273A00059BAA /* Personal Budget */,
 				F20F1C641F94273A00059BAA /* Personal BudgetTests */,
 				F20F1C6F1F94273A00059BAA /* Personal BudgetUITests */,
+				F26ECDD21FF99B3C0026DA41 /* WK Personal App */,
+				F26ECDE11FF99B3C0026DA41 /* WK Personal App Extension */,
 				F20F1C4E1F94273A00059BAA /* Products */,
 				C036EE9B047E6446DC91A5DC /* Pods */,
 				BC28B43BF09B7B0563AA0BF6 /* Frameworks */,
@@ -142,6 +211,8 @@
 				F20F1C4D1F94273A00059BAA /* Personal Budget.app */,
 				F20F1C611F94273A00059BAA /* Personal BudgetTests.xctest */,
 				F20F1C6C1F94273A00059BAA /* Personal BudgetUITests.xctest */,
+				F26ECDD11FF99B3C0026DA41 /* WK Personal App.app */,
+				F26ECDDD1FF99B3C0026DA41 /* WK Personal App Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -199,6 +270,30 @@
 			path = StoryBoards;
 			sourceTree = "<group>";
 		};
+		F26ECDD21FF99B3C0026DA41 /* WK Personal App */ = {
+			isa = PBXGroup;
+			children = (
+				F26ECDD31FF99B3C0026DA41 /* Interface.storyboard */,
+				F26ECDD61FF99B3C0026DA41 /* Assets.xcassets */,
+				F26ECDD81FF99B3C0026DA41 /* Info.plist */,
+			);
+			path = "WK Personal App";
+			sourceTree = "<group>";
+		};
+		F26ECDE11FF99B3C0026DA41 /* WK Personal App Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F26ECDE21FF99B3C0026DA41 /* InterfaceController.swift */,
+				F2777BDF1FF9ACAA00A4FB6C /* WatchTable.swift */,
+				F26ECDE41FF99B3C0026DA41 /* ExtensionDelegate.swift */,
+				F26ECDE61FF99B3C0026DA41 /* NotificationController.swift */,
+				F26ECDE81FF99B3C0026DA41 /* Assets.xcassets */,
+				F26ECDEA1FF99B3C0026DA41 /* Info.plist */,
+				F26ECDEB1FF99B3C0026DA41 /* PushNotificationPayload.apns */,
+			);
+			path = "WK Personal App Extension";
+			sourceTree = "<group>";
+		};
 		F2BEB1AF1F9D4E3200A3BFD6 /* Swift Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,10 +315,12 @@
 				F20F1C4B1F94273A00059BAA /* Resources */,
 				0EEE1620A13D7168A1CEF0E6 /* [CP] Embed Pods Frameworks */,
 				5F32BEBEB3AE0760518C12EF /* [CP] Copy Pods Resources */,
+				F26ECDF61FF99B3C0026DA41 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F26ECDED1FF99B3C0026DA41 /* PBXTargetDependency */,
 			);
 			name = "Personal Budget";
 			productName = "Personal Budget";
@@ -272,13 +369,47 @@
 			productReference = F20F1C6C1F94273A00059BAA /* Personal BudgetUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		F26ECDD01FF99B3C0026DA41 /* WK Personal App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F26ECDF51FF99B3C0026DA41 /* Build configuration list for PBXNativeTarget "WK Personal App" */;
+			buildPhases = (
+				F26ECDCF1FF99B3C0026DA41 /* Resources */,
+				F26ECDF41FF99B3C0026DA41 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F26ECDE01FF99B3C0026DA41 /* PBXTargetDependency */,
+			);
+			name = "WK Personal App";
+			productName = "WK Personal App";
+			productReference = F26ECDD11FF99B3C0026DA41 /* WK Personal App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		F26ECDDC1FF99B3C0026DA41 /* WK Personal App Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F26ECDF31FF99B3C0026DA41 /* Build configuration list for PBXNativeTarget "WK Personal App Extension" */;
+			buildPhases = (
+				F26ECDD91FF99B3C0026DA41 /* Sources */,
+				F26ECDDA1FF99B3C0026DA41 /* Frameworks */,
+				F26ECDDB1FF99B3C0026DA41 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WK Personal App Extension";
+			productName = "WK Personal App Extension";
+			productReference = F26ECDDD1FF99B3C0026DA41 /* WK Personal App Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		F20F1C451F94273A00059BAA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0910;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Zach Bockskopf";
 				TargetAttributes = {
@@ -295,6 +426,14 @@
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F20F1C4C1F94273A00059BAA;
+					};
+					F26ECDD01FF99B3C0026DA41 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					F26ECDDC1FF99B3C0026DA41 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -314,6 +453,8 @@
 				F20F1C4C1F94273A00059BAA /* Personal Budget */,
 				F20F1C601F94273A00059BAA /* Personal BudgetTests */,
 				F20F1C6B1F94273A00059BAA /* Personal BudgetUITests */,
+				F26ECDD01FF99B3C0026DA41 /* WK Personal App */,
+				F26ECDDC1FF99B3C0026DA41 /* WK Personal App Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -341,6 +482,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F26ECDCF1FF99B3C0026DA41 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F26ECDD71FF99B3C0026DA41 /* Assets.xcassets in Resources */,
+				F26ECDD51FF99B3C0026DA41 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F26ECDDB1FF99B3C0026DA41 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F26ECDE91FF99B3C0026DA41 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +696,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F26ECDD91FF99B3C0026DA41 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F26ECDE71FF99B3C0026DA41 /* NotificationController.swift in Sources */,
+				F26ECDE51FF99B3C0026DA41 /* ExtensionDelegate.swift in Sources */,
+				F2777BE01FF9ACAA00A4FB6C /* WatchTable.swift in Sources */,
+				F26ECDE31FF99B3C0026DA41 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -550,6 +719,16 @@
 			isa = PBXTargetDependency;
 			target = F20F1C4C1F94273A00059BAA /* Personal Budget */;
 			targetProxy = F20F1C6D1F94273A00059BAA /* PBXContainerItemProxy */;
+		};
+		F26ECDE01FF99B3C0026DA41 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F26ECDDC1FF99B3C0026DA41 /* WK Personal App Extension */;
+			targetProxy = F26ECDDF1FF99B3C0026DA41 /* PBXContainerItemProxy */;
+		};
+		F26ECDED1FF99B3C0026DA41 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F26ECDD01FF99B3C0026DA41 /* WK Personal App */;
+			targetProxy = F26ECDEC1FF99B3C0026DA41 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -568,6 +747,14 @@
 				F20F1C5A1F94273A00059BAA /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F26ECDD31FF99B3C0026DA41 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F26ECDD41FF99B3C0026DA41 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -784,6 +971,80 @@
 			};
 			name = Release;
 		};
+		F26ECDEF1FF99B3C0026DA41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B6CP63MQWE;
+				IBSC_MODULE = WK_Personal_App_Extension;
+				INFOPLIST_FILE = "WK Personal App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "Box.Personal-Budget.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		F26ECDF01FF99B3C0026DA41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B6CP63MQWE;
+				IBSC_MODULE = WK_Personal_App_Extension;
+				INFOPLIST_FILE = "WK Personal App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "Box.Personal-Budget.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
+		F26ECDF11FF99B3C0026DA41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B6CP63MQWE;
+				INFOPLIST_FILE = "WK Personal App Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Box.Personal-Budget.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		F26ECDF21FF99B3C0026DA41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B6CP63MQWE;
+				INFOPLIST_FILE = "WK Personal App Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Box.Personal-Budget.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -819,6 +1080,24 @@
 			buildConfigurations = (
 				F20F1C7C1F94273A00059BAA /* Debug */,
 				F20F1C7D1F94273A00059BAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F26ECDF31FF99B3C0026DA41 /* Build configuration list for PBXNativeTarget "WK Personal App Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F26ECDF11FF99B3C0026DA41 /* Debug */,
+				F26ECDF21FF99B3C0026DA41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F26ECDF51FF99B3C0026DA41 /* Build configuration list for PBXNativeTarget "WK Personal App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F26ECDEF1FF99B3C0026DA41 /* Debug */,
+				F26ECDF01FF99B3C0026DA41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

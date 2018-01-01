@@ -10,8 +10,11 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 import MessageUI
+import WatchConnectivity
 
-class MainMenuController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate {
+class MainMenuController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate, WCSessionDelegate {
+
+    
     
 
     
@@ -36,10 +39,29 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
     var testArr: Array<String> = ["New Month", "Spendings"]
     
     
+    //Watch Connectivity
+    private var WCS: WCSession!
+    private var cashAmount: String = ""
+    private var messsageDict: [String: String] = ["Test": "Test"]
+    
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Watch Stuff
+        
+        WCS = WCSession.default
+        WCS.delegate = self
+        WCS.activate()
+        sendToWatch()
+        
+        
+        
+        
+        
+        
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
         checkIfUserIsLoggedIn()
         ref = Database.database().reference()
@@ -240,6 +262,7 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
     func readCheckings() {
         db.readCategory(completion: { (amount) in
             self.checkAmLbl.text? = amount!
+            self.messsageDict.updateValue(amount!, forKey: "checkAmount")
         }, category: "Checkings")
         
     }
@@ -247,6 +270,7 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
     func readSavings(){
         db.readSavings { (save) in
             self.savAmLbl.text = save!
+            self.messsageDict.updateValue(save!, forKey: "saveAmont")
         }
     }
 
@@ -254,6 +278,7 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
         
         db.readCategory(completion: { (amount) in
             self.cashAmLbl.text? = amount!
+            self.messsageDict.updateValue(amount!, forKey: "cashAmount")
         }, category: "Cash")
         
 //        db.readCash { (cash) in
@@ -318,6 +343,33 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
         }
 
         
+        
+    }
+    
+    
+    
+    
+/*----------------------------------------Watch Stuff-----------------------------*/
+    
+    func sendToWatch() {
+        WCS.sendMessage(["cashAmount": cashAmLbl.text!], replyHandler: nil) { (error) in
+            print(error)
+        }
+    }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        session.delegate = self
+        session.activate()
+        session.sendMessage(messsageDict, replyHandler: nil) { (error) in
+            print(error)
+        }
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
         
     }
     
