@@ -15,19 +15,20 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
 
     
 
-    @IBOutlet var cashLabel: WKInterfaceLabel!
+    
     @IBOutlet var table: WKInterfaceTable!
+
+    @IBOutlet var testLbl: WKInterfaceLabel!
+    
     
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
         // Configure interface objects here.
-        cashLabel.setText("Testing")
-        self.table.setNumberOfRows(3, withRowType: "CategroyRow")
-        for i in 0...3 {
-            
-        }
+
+
+
         
     }
     
@@ -50,9 +51,16 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         
     }
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+    private func session(_ session: WCSession, didReceiveMessage message: [String : String]) {
         //cashLabel.setText(message["cashAmount"] as? String)
-        cashLabel.setText("Hello")
+        testLbl.setText(message["cashAmount"])
+        self.table.setNumberOfRows(3, withRowType: "CategoryRow")
+        for i in 0...3{
+            let currentRow = self.table.rowController(at: i) as? WatchTable
+            currentRow?.categoryLbl.setText(message["cashAmount"])
+            
+            currentRow?.amountLbl.setText("World")
+        }
     }
 
 }

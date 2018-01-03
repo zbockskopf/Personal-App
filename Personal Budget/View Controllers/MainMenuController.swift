@@ -358,11 +358,11 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        session.delegate = self
-        session.activate()
-        session.sendMessage(messsageDict, replyHandler: nil) { (error) in
-            print(error)
-        }
+//        session.delegate = self
+//        session.activate()
+//        session.sendMessage(messsageDict, replyHandler: nil) { (error) in
+//            print(error)
+//        }
     }
     
     func sessionDidBecomeInactive(_ session: WCSession) {

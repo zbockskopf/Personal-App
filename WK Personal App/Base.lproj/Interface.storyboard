@@ -14,16 +14,12 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WK_Personal_App" customModuleProvider="target">
                     <items>
-                        <table alignment="left" id="HUr-jm-oWP">
-                            <items>
-                                <tableRow identifier="CategoryRow" id="OjP-sv-vBG">
-                                    <group key="rootItem" width="1" alignment="left" id="0oc-eL-hGq"/>
-                                </tableRow>
-                            </items>
-                        </table>
+                        <table alignment="left" id="MsX-Mc-sev"/>
+                        <label alignment="left" text="Label" id="yCu-fw-0ND"/>
                     </items>
                     <connections>
-                        <outlet property="table" destination="0oc-eL-hGq" id="0HA-bq-WPd"/>
+                        <outlet property="table" destination="MsX-Mc-sev" id="PJr-C3-HJ4"/>
+                        <outlet property="testLbl" destination="yCu-fw-0ND" id="8uM-oX-o1t"/>
                     </connections>
                 </controller>
             </objects>

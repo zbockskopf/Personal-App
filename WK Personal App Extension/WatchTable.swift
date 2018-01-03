@@ -10,6 +10,8 @@ import UIKit
 import WatchKit
 
 class WatchTable: NSObject {
-    @IBOutlet var categoryLabel: WKInterfaceLabel!
+
+    @IBOutlet var categoryLbl: WKInterfaceLabel!
     
+    @IBOutlet var amountLbl: WKInterfaceLabel!
 }
