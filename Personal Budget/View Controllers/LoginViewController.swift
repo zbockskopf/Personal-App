@@ -216,7 +216,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
     
     @objc func loginBtnClick() {
         self.performSegue(withIdentifier: "goToNewAccount", sender: nil)
-        //loginRegister()
+        loginRegister()
     }
     
 
@@ -273,7 +273,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
         })
     }
     
-// Touch ID Login
+    // Touch ID Login
     func touchIDLogin() {
         let authenticationContext = LAContext()
         
@@ -323,7 +323,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
         })
         
     }
-
+    
     func showAlertViewIfNoBiometricSensorHasBeenDetected(){
         
         showAlertWithTitle(title: "Error", message: "This device does not have a TouchID sensor.")
@@ -345,10 +345,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
         
     }
     
-
-
-    
-    
     func errorMessageForLAErrorCode( errorCode:Int ) -> String{
         
         var message = ""
@@ -356,4 +352,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
         return message
         
     }
+    
+
 }

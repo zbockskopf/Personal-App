@@ -33,6 +33,7 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
     var uid: String? = ""
     var db = DataBase()
     var sideMenuArray: Array<String> = []
+    var testArr: Array<String> = ["New Month", "Spendings"]
     
     
 
@@ -45,6 +46,13 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
         //ref.child("Account Data").child(uid!).child("November").child("Checkings").setValue(12)
         //getAllChildren()
         //populateSideMenu()
+        //db.setMonth(month: "November 2017")
+//        var currentMonth: String = ""
+//        db.getMonth { (month) in
+//            currentMonth = month!
+//        }
+        db.addToSpendings(description: "test item", category: "Cash", Amount: "1000.00")
+        
         
         
         
@@ -279,13 +287,17 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return sideMenuArray.count
+        //return sideMenuArray.count
+        return testArr.count
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
-        cell.textLabel?.text = String(describing: sideMenuArray[indexPath.row])
+        
+        //cell.textLabel?.text = String(describing: sideMenuArray[indexPath.row])
+        cell.textLabel?.text = String(describing: testArr[indexPath.row])
         return cell
     }
     
@@ -294,6 +306,18 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
         //        TableViewCon.stringPassed = String(describing: arr[indexPath.row])
         //
         //        present(TableViewCon, animated: true, completion: nil)
+        
+        if(indexPath.row == 1){
+            let SpendCon = SpendingsController()
+            //self.present(SpendCon, animated: true, completion: nil)
+            self.performSegue(withIdentifier: "goToSpendings", sender: nil)
+        }else{
+            let NewMonthCon = NewAccountController()
+            //self.present(NewMonthCon, animated: true, completion: nil)
+            self.performSegue(withIdentifier: "gotToNewMonth", sender: nil)
+        }
+
+        
         
     }
     
