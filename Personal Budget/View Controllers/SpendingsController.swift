@@ -27,8 +27,9 @@ class SpendingsController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var amountTable: UITableView!
     @IBOutlet weak var dateTable: UITableView!
     
-    
+    var ref: DatabaseReference!
     var db = DataBase()
+    var uid = Auth.auth().currentUser?.uid
     var allDescriptions: Array<String> = []
     var allAmount: Array<String> = []
     var allDates: Array<String> = []
@@ -47,12 +48,18 @@ class SpendingsController: UIViewController, UITableViewDataSource, UITableViewD
     
     func populateTable() {
         
+//        ref = Database.database().reference()
+//        ref.child("Spendings").child(uid!).child("January 2018").observe(.childAdded) { (snapshot) in
+//            self.allDescriptions.append(snapshot)
+//        }
+        
         db.getAllTransactions { (description) in
             self.allDescriptions = description
             for des in self.allDescriptions {
                 self.db.getAmountDates(completion: { (amounts, dates) in
-                    self.allAmount = amounts
-                    self.allDates = dates
+                    self.allAmount.append(amounts)
+                    self.allDates.append(dates)
+                    print(dates, amounts)
                     DispatchQueue.main.async{
                         self.amountTable.reloadData()
                         self.dateTable.reloadData()

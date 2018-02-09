@@ -54,7 +54,8 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
         //db.addToSpendings(description: "test item", category: "Cash", Amount: "1000.00")
         
         
-        
+        //db.setMonth(month: "February 2018")
+        logout()
         
         //side menu
         self.sideMenu.layer.shadowOpacity = 1

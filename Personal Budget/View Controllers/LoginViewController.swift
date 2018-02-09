@@ -109,6 +109,13 @@ class LogInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
         setupInputContainer()
         setupButtonContainer()
         setupGoogleBtn()
+        print("At login screen")
+        
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil && user?.uid != nil{
+                self.performSegue(withIdentifier: "goToMainMenu", sender: nil)
+            }
+        }
         
         //touchIDLogin()
         
@@ -215,8 +222,10 @@ class LogInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
     }
     
     @objc func loginBtnClick() {
-        self.performSegue(withIdentifier: "goToNewAccount", sender: nil)
-        loginRegister()
+        let vc = MoneyTestViewController()
+        self.present(vc, animated: true, completion: nil)
+        //loginRegister()
+        //self.performSegue(withIdentifier: "goToNewAccount", sender: nil)
     }
     
 
@@ -230,12 +239,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
     
 //Login User
     func loginUser() {
-//        guard let email = emailTextField.text, let password = passwordTextField.text else {
-//            return
-//        }
+        guard let email = emailTextField.text, let password = passwordTextField.text else {
+            return
+        }
         
-        let email = "test@test.com"
-        let password = "123test"
+        
         
         if email != "" && password != "" {
             Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
@@ -251,14 +259,19 @@ class LogInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
     
 //Register User
     func registerUser() {
-        guard let email = emailTextField.text, let password = passwordTextField.text, let name = nameTextField.text else {
-            return
-        }
+//        guard let email = emailTextField.text, let password = passwordTextField.text, let name = nameTextField.text else {
+//            return
+//        }
+        let name = "Test Account"
+        let email = "test@test.com"
+        let password = "123test"
+        print("Register function")
         Auth.auth().createUser(withEmail: email, password: password, completion:  { (user, error) in
             if error != nil {
                 print(error as Any)
                 return
             }
+            print("Created User")
             
             self.ref = Database.database().reference()
             guard let uid = user?.uid else { return }
@@ -269,11 +282,13 @@ class LogInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
                     print(err as Any)
                     return
                 }
-                self.performSegue(withIdentifier: "goToNewAccount", sender: nil)
+                
                 
                 print("Saved user into firebase")
             })
+            self.performSegue(withIdentifier: "goToNewAccount", sender: nil)
         })
+        
     }
     
 

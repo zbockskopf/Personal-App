@@ -65,7 +65,7 @@ class AddController: UIViewController, UITextFieldDelegate, UITableViewDataSourc
             let descrptionTF = alert?.textFields![0]
             let amountTF = alert?.textFields![1]
             self.db.addToCategory(category: self.selectedCategory, changeAmount: (amountTF?.text)!)
-            self.db.addToSpendings(description: (descrptionTF?.text)!, category: self.selectedCategory, Amount: (amountTF?.text)!)
+            self.db.addToSpendings(description: (descrptionTF?.text)!, category: self.selectedCategory, amount: (amountTF?.text)!)
 
             //makeChanges(selectedCategory: self.selectedCategory, category: <#String#>, changeAmount: <#String#>, subcat: <#String?#>)
         }))
