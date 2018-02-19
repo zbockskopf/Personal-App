@@ -222,8 +222,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
     }
     
     @objc func loginBtnClick() {
-        let vc = MoneyTestViewController()
-        self.present(vc, animated: true, completion: nil)
+        loginUser()
         //loginRegister()
         //self.performSegue(withIdentifier: "goToNewAccount", sender: nil)
     }
@@ -239,10 +238,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
     
 //Login User
     func loginUser() {
-        guard let email = emailTextField.text, let password = passwordTextField.text else {
-            return
-        }
-        
+//        guard let email = emailTextField.text, let password = passwordTextField.text else {
+//            return
+//        }
+        let email = "test@test.com"
+        let password = "123test"
         
         
         if email != "" && password != "" {

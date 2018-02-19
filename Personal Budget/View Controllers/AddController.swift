@@ -64,6 +64,7 @@ class AddController: UIViewController, UITextFieldDelegate, UITableViewDataSourc
         alert.addAction(UIAlertAction(title: "ok", style: .default, handler: { [weak alert](_) in
             let descrptionTF = alert?.textFields![0]
             let amountTF = alert?.textFields![1]
+
             self.db.addToCategory(category: self.selectedCategory, changeAmount: (amountTF?.text)!)
             self.db.addToSpendings(description: (descrptionTF?.text)!, category: self.selectedCategory, amount: (amountTF?.text)!)
 

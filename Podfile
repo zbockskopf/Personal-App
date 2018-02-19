@@ -10,7 +10,7 @@ target 'Personal Budget' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
-
+  pod 'Charts'
 
   target 'Personal BudgetTests' do
     inherit! :search_paths
