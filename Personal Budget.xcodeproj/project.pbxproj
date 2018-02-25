@@ -10,6 +10,7 @@
 		346DEC8BF3745E06B5B2420C /* Pods_Personal_BudgetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FA2AF0E35B20F0474771DA /* Pods_Personal_BudgetTests.framework */; };
 		3E45DAFF23B21878A500F6FF /* Pods_Personal_BudgetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945FF86BA231ED3FFD52C02D /* Pods_Personal_BudgetUITests.framework */; };
 		858684A11E57BEF418D2FC28 /* Pods_Personal_Budget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420E49C9770317A2477DD894 /* Pods_Personal_Budget.framework */; };
+		F2014D02202D4B5E00E28142 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2014D01202D4B5E00E28142 /* Money.swift */; };
 		F20F1C511F94273A00059BAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20F1C501F94273A00059BAA /* AppDelegate.swift */; };
 		F20F1C561F94273A00059BAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F20F1C541F94273A00059BAA /* Main.storyboard */; };
 		F20F1C581F94273A00059BAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F20F1C571F94273A00059BAA /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 		F24636F11F99B75B00B5EB2D /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24636F01F99B75B00B5EB2D /* MainMenuController.swift */; };
 		F24636F31F99CA3B00B5EB2D /* AddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24636F21F99CA3B00B5EB2D /* AddController.swift */; };
 		F24636F61F9AC4AF00B5EB2D /* NewAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24636F51F9AC4AF00B5EB2D /* NewAccountController.swift */; };
+		F26192B3203AB04100D1B571 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26192B2203AB04100D1B571 /* ChartViewController.swift */; };
 		F2AD7E8B1FEDA28F003D720D /* SpendingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AD7E8A1FEDA28F003D720D /* SpendingsController.swift */; };
 		F2BEB1B11F9D4E4600A3BFD6 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BEB1B01F9D4E4600A3BFD6 /* DataBase.swift */; };
 		F2F85FAB1FA7AE43005E2474 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2F85FAA1FA7AE43005E2474 /* GoogleService-Info.plist */; };
@@ -52,6 +54,7 @@
 		945FF86BA231ED3FFD52C02D /* Pods_Personal_BudgetUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Personal_BudgetUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC9D371D7DF321D629C1A7C8 /* Pods-Personal BudgetUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal BudgetUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal BudgetUITests/Pods-Personal BudgetUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EC8C542310FA05C808D04863 /* Pods-Personal BudgetUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal BudgetUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Personal BudgetUITests/Pods-Personal BudgetUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F2014D01202D4B5E00E28142 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		F20F1C4D1F94273A00059BAA /* Personal Budget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal Budget.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F20F1C501F94273A00059BAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F20F1C551F94273A00059BAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,6 +71,7 @@
 		F24636F01F99B75B00B5EB2D /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
 		F24636F21F99CA3B00B5EB2D /* AddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddController.swift; sourceTree = "<group>"; };
 		F24636F51F9AC4AF00B5EB2D /* NewAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountController.swift; sourceTree = "<group>"; };
+		F26192B2203AB04100D1B571 /* ChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		F2AD7E8A1FEDA28F003D720D /* SpendingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingsController.swift; sourceTree = "<group>"; };
 		F2BEB1B01F9D4E4600A3BFD6 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		F2F85FAA1FA7AE43005E2474 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 				F24636F21F99CA3B00B5EB2D /* AddController.swift */,
 				F24636F51F9AC4AF00B5EB2D /* NewAccountController.swift */,
 				F2AD7E8A1FEDA28F003D720D /* SpendingsController.swift */,
+				F26192B2203AB04100D1B571 /* ChartViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				F2BEB1B01F9D4E4600A3BFD6 /* DataBase.swift */,
+				F2014D01202D4B5E00E28142 /* Money.swift */,
 			);
 			path = "Swift Classes";
 			sourceTree = "<group>";
@@ -354,6 +360,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Personal Budget/Pods-Personal Budget-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -362,6 +369,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -512,10 +520,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2014D02202D4B5E00E28142 /* Money.swift in Sources */,
 				F24636E91F99924C00B5EB2D /* LoginViewController.swift in Sources */,
 				F2AD7E8B1FEDA28F003D720D /* SpendingsController.swift in Sources */,
 				F24636F61F9AC4AF00B5EB2D /* NewAccountController.swift in Sources */,
 				F20F1C511F94273A00059BAA /* AppDelegate.swift in Sources */,
+				F26192B3203AB04100D1B571 /* ChartViewController.swift in Sources */,
 				F24636F11F99B75B00B5EB2D /* MainMenuController.swift in Sources */,
 				F2BEB1B11F9D4E4600A3BFD6 /* DataBase.swift in Sources */,
 				F24636F31F99CA3B00B5EB2D /* AddController.swift in Sources */,

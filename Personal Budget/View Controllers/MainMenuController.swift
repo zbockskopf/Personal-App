@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 import MessageUI
+import Charts
 
 class MainMenuController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate {
     
@@ -20,6 +21,7 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var sideMenuTable: UITableView!
     var menuIsShown = false
     @IBOutlet weak var feedBackBtn: UIButton!
+    @IBOutlet weak var chartView: PieChartView!
     
 
     
@@ -33,7 +35,7 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
     var uid: String? = ""
     var db = DataBase()
     var sideMenuArray: Array<String> = []
-    var testArr: Array<String> = ["New Month", "Spendings"]
+    var testArr: Array<String> = ["New Month", "Spendings", "New Category", "Charts"]
     
     
 
@@ -43,18 +45,34 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
         // Do any additional setup after loading the view, typically from a nib.
         checkIfUserIsLoggedIn()
         ref = Database.database().reference()
-        //ref.child("Account Data").child(uid!).child("November").child("Checkings").setValue(12)
+        print(Auth.auth().currentUser?.uid)
+//        ref.child("Account Data").child(uid!).child("February 2018").child("Savings").setValue("12.31")
+//        ref.child("Account Data").child(uid!).child("February 2018").child("Cash").setValue(String("0.01"))
+//        ref.child("Account Data").child(uid!).child("February 2018").child("Checkings").setValue(String("0.01"))
+        
         //getAllChildren()
         //populateSideMenu()
-        //db.setMonth(month: "November 2017")
+        //db.setMonth(month: "February 2018")
 //        var currentMonth: String = ""
 //        db.getMonth { (month) in
 //            currentMonth = month!
 //        }
-        db.addToSpendings(description: "test item", category: "Cash", Amount: "1000.00")
+        //db.addToSpendings(description: "test item", category: "Cash", Amount: "1000.00")
         
+        //db.addToCash(amount: "-287.54")
+        //db.addToCheckings(amount: "-2561.85")
+        //db.addToCheckings(amount: "2561.85")
         
+        //db.addToCategory(category: "Savings", changeAmount: -1244.29)
+        //db.addToCheckings(amount: "200")
+        //db.setMonth(month: "February 2018")
+        //logout()
         
+        let x = Money(amt: "0.01", currency: .USD)
+        let y = Money(amt: "0.5", currency: .USD)
+        let z = x + y
+        print(z.amount)
+        //db.getMonth()
         
         //side menu
         self.sideMenu.layer.shadowOpacity = 1
@@ -72,6 +90,9 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(swipe:)))
         leftSwipe.direction = UISwipeGestureRecognizerDirection.left
         self.view.addGestureRecognizer(leftSwipe)
+        
+        
+        
     }
     
     
@@ -84,9 +105,69 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
         readCheckings()
         readCash()
         readSavings()
-        getAllChildren()
+//        //getAllChildren()
+        
         print("Side Menu Array", sideMenuArray)
     }
+/*-----------------------------------------------------------------------------------------------*/
+                        /*-Chart Functions-*/
+    
+    func pieChartUpdate() {
+//        let entry1 = PieChartDataEntry(value: Double(100), label: "#1")
+//        let entry2 = PieChartDataEntry(value: Double(200), label: "#2")
+//        let entry3 = PieChartDataEntry(value: Double(300), label: "#3")
+//        let dataSet = PieChartDataSet(values: [entry1, entry2, entry3], label: "Widget Types")
+//        let data = PieChartData(dataSet: dataSet)
+//        chartView.data = data
+        //chartView.chartDescription?.text = "Share of Widgets by Type"
+        
+        //All other additions to this function will go here
+        
+        //This must stay at end of function
+        //chartView.notifyDataSetChanged()
+        
+        // 2. generate chart data entries
+        let checkings = Double(checkAmLbl.text!)
+        let cash = Double(cashAmLbl.text!)
+        let savings = Double(savAmLbl.text!)
+        let track = ["Checkings", "Cash", "Savings"]
+        let money = [checkings, cash, savings]
+        
+        var entries = [PieChartDataEntry]()
+        for (index, value) in money.enumerated() {
+            let entry = PieChartDataEntry()
+            entry.y = value!
+            entry.label = track[index]
+            entries.append( entry)
+        }
+        
+        // 3. chart setup
+        let set = PieChartDataSet( values: entries, label: "Pie Chart")
+        // this is custom extension method. Download the code for more details.
+        var colors: [UIColor] = []
+        
+        for _ in 0..<money.count {
+            let red = Double(arc4random_uniform(256))
+            let green = Double(arc4random_uniform(256))
+            let blue = Double(arc4random_uniform(256))
+            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
+            colors.append(color)
+        }
+        set.colors = colors
+        let data = PieChartData(dataSet: set)
+        chartView.data = data
+        chartView.noDataText = "No data available"
+        // user interaction
+        chartView.isUserInteractionEnabled = true
+        
+        let d = Description()
+        d.text = "iOSCharts.io"
+        chartView.chartDescription = d
+        chartView.centerText = "Pie Chart"
+        chartView.holeRadiusPercent = 0.2
+        chartView.transparentCircleColor = UIColor.clear
+    }
+    
 /*-----------------------------------------------------------------------------------------------*/
                         /*-Login Functions-*/
     
@@ -241,12 +322,15 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
         db.readCategory(completion: { (amount) in
             self.checkAmLbl.text? = amount!
         }, category: "Checkings")
-        
+//        db.readCheckings { (amount) in
+//            self.checkAmLbl.text? = amount!
+//        }
     }
     
     func readSavings(){
         db.readSavings { (save) in
             self.savAmLbl.text = save!
+            self.pieChartUpdate()
         }
     }
 
@@ -311,10 +395,12 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
             let SpendCon = SpendingsController()
             //self.present(SpendCon, animated: true, completion: nil)
             self.performSegue(withIdentifier: "goToSpendings", sender: nil)
+//            let chartController = ChartViewController()
+//            self.present(chartController, animated: true, completion: nil)
         }else{
             let NewMonthCon = NewAccountController()
             //self.present(NewMonthCon, animated: true, completion: nil)
-            self.performSegue(withIdentifier: "gotToNewMonth", sender: nil)
+            self.performSegue(withIdentifier: "goToNewMonth", sender: nil)
         }
 
         

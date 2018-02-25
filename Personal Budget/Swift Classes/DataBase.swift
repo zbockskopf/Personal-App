@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 
+
 class DataBase {
     
     private var ref: DatabaseReference {
@@ -16,7 +17,10 @@ class DataBase {
     }
     
     private var uid: String? = (Auth.auth().currentUser?.uid)!
-    private var currentMonth: String = "January 2018"
+    private var currentMonth: String = "February 2018"
+//    private var currentMonth: String {
+//        return getMonth()
+//    }
     
     
     
@@ -36,18 +40,18 @@ class DataBase {
     func readCheckings(completion: @escaping (String?) -> Void) {
         self.ref.child("Account Data").child(uid!).child(currentMonth).observeSingleEvent(of: .value) {(snapshot) in
             let value = snapshot.value as! NSDictionary
-            let checkings = value["Checkings"] as! Double
-            let check = String(checkings)
+            let checkings = value["Checkings"] as! String
+            let check = String(describing: checkings)
             completion(check)
         }
     }
     
-    
+
     func readSavings(completion: @escaping (String?) -> Void) {
         self.ref.child("Account Data").child(uid!).child(currentMonth).observeSingleEvent(of: .value) {(snapshot) in
             let value = snapshot.value as! NSDictionary
-            let savings = value["Savings"] as! Double
-            let save = String(savings)
+            let savings = value["Savings"] as! String
+            let save = String(describing: savings)
             completion(save)
         }
     }
@@ -55,8 +59,8 @@ class DataBase {
     func readCash(completion: @escaping (String?) -> Void) {
         self.ref.child("Account Data").child(uid!).child(currentMonth).observeSingleEvent(of: .value) {(snapshot) in
             let value = snapshot.value as! NSDictionary
-            let cashAm = value["Cash"] as! Double
-            let cash = String(cashAm)
+            let cashAm = value["Cash"] as! String
+            let cash = String(describing: cashAm)
             completion(cash)
         }
     }
@@ -84,18 +88,27 @@ class DataBase {
                     childrenArray.append(rest.key)
                 }
             }
-            print(childrenArray)
             completion(childrenArray)
         }
     }
     
-    func getMonth(completion: @escaping (String?) -> Void) {
+//    func getMonth(completion: @escaping (String?) -> Void) {
+//        self.ref.child("Current Month").observeSingleEvent(of: .value) { (snapshot) in
+//            let value = snapshot.value as! NSDictionary
+//            let month = value[self.uid!] as? String
+//            self.currentMonth = month!
+//            completion(month)
+//        }
+//    }
+//
+    func getMonth(){
+        var month: String = ""
         self.ref.child("Current Month").observeSingleEvent(of: .value) { (snapshot) in
             let value = snapshot.value as! NSDictionary
-            let month = value[self.uid!] as? String
-            self.currentMonth = month!
-            completion(month)
+            month = value[self.uid!] as! String
         }
+        
+        currentMonth = month
     }
     
     func setMonth(month: String) {
@@ -103,86 +116,194 @@ class DataBase {
     }
     
     func createNewMonth(month: String) {
-        ref.child("Current Month").child(self.uid!).child(month).setValue("")
-        currentMonth = month
+        ref.child("Current Month").child(self.uid!).setValue(month)
+        //currentMonth = month
     }
     
     func readCategory(completion: @escaping (String?) -> Void, category: String) {
         self.ref.child("Account Data").child(uid!).child(currentMonth).observeSingleEvent(of: .value) {(snapshot) in
             let value = snapshot.value as! NSDictionary
-            let catAmount = value[category] as? Double
+            let catAmount = value[category] as! String
             if catAmount != nil {
-                let amount = String(describing: catAmount!)
-                completion(amount)
+                completion(catAmount)
             }
         }
     }
     
     func addCategory(category: String, amount: String){
-        ref.child("Account Data").child(self.uid!).child(currentMonth).child(category).setValue(Double(amount))
+        ref.child("Account Data").child(self.uid!).child(currentMonth).child(category).setValue(amount)
     }
     
     func addToCategory(category: String, changeAmount: String, subCategroy: String? = "") {
-        var categoryAmount: Double = 0
-        let changeAmount = Double(changeAmount)!
+        var categoryAmount:String = ""
         if subCategroy != ""{
             readCategory(completion: { (amount) in
-                categoryAmount = Double(amount!)!
+                categoryAmount = amount!
+                let temp_catAmt = Money(amt: categoryAmount, currency: .USD)
+                let temp_changeAmt = Money(amt: changeAmount, currency: .USD)
+                let temp_total = temp_catAmt + temp_changeAmt
+                categoryAmount = String(temp_total.amount)
+                self.ref.child("Account Data").child(self.uid!).child(self.currentMonth).child(subCategroy!).child(category).setValue(categoryAmount)
             }, category: category)
-            categoryAmount += changeAmount
-            ref.child("Account Data").child(self.uid!).child(currentMonth).child(subCategroy!).child(category).setValue(categoryAmount)
+
         }else{
             readCategory(completion: { (amount) in
-                categoryAmount = Double(amount!)!
-                categoryAmount += changeAmount
+                categoryAmount = amount!
+                let temp_catAmt = Money(amt: categoryAmount, currency: .USD)
+                let temp_changeAmt = Money(amt: changeAmount, currency: .USD)
+                let temp_total = temp_catAmt + temp_changeAmt
+                categoryAmount = String(temp_total.amount)
                 self.ref.child("Account Data").child(self.uid!).child(self.currentMonth).child(category).setValue(categoryAmount)
             }, category: category)
-            print(categoryAmount)
+            
+
             
         }
 
     }
     
     
-    
+
 /*---------------------Spendings Functions------------------------*/
-    func addToSpendings(description: String, category: String, Amount: String) {
-        //var categoryAmount: Double = 0
-        let Amount = Double(Amount)!
+    func addToSpendings(description: String, category: String, amount: String) {
+        
+        
+
+        
         let date = Date()
         let formater = DateFormatter()
+        formater.dateFormat = "MM-dd"
+        let day = formater.string(from: date)
         
-        self.ref.child("Spendings").child(self.uid!).child(self.currentMonth).child(description).child(category).setValue(Amount)
+        
+        self.ref.child("Spendings").child(self.uid!).child(self.currentMonth).child(day).child(category).child(description).setValue(amount)
+        self.ref.child("Stats").child(self.uid!).child(self.currentMonth).child(category).observeSingleEvent(of: .value) { (snapshot) in
+            let value = snapshot.value as! NSDictionary
+            var tu = value["Times Used"] as! Int
+            let total = value["Total"] as! String
+            
+            let temp_catAmt = Money(amt: amount, currency: .USD)
+            let temp_changeAmt = Money(amt: total, currency: .USD)
+            let temp_total = temp_catAmt + temp_changeAmt
+            
+            tu += 1
+            
+            self.ref.child("Stats").child(self.uid!).child(self.currentMonth).child(category).child("Total").setValue(String(abs(temp_total.amount)))
+            self.ref.child("Stats").child(self.uid!).child(self.currentMonth).child(category).child("Times Used").setValue(tu)
+        }
 
-        formater.dateFormat = "MM/dd"
-        let result = formater.string(from: date)
-        self.ref.child("Spendings").child(self.uid!).child(self.currentMonth).child(description).child("Date").setValue(result)
+        
+        self.ref.child("Stats").child(self.uid!).child(self.currentMonth).child("Total").observeSingleEvent(of: .value) { (snapshot) in
+            let value = snapshot.value as! NSDictionary
+            var tu = value["Times Used"] as! Int
+            let total = value["Total"] as! String
+            
+            tu += 1
+            let temp_catAmt = Money(amt: amount, currency: .USD)
+            let temp_changeAmt = Money(amt: total, currency: .USD)
+            let temp_total = temp_catAmt + temp_changeAmt
+            
+            self.ref.child("Stats").child(self.uid!).child(self.currentMonth).child("Total").child("Total").setValue(String(abs(temp_total.amount)))
+            self.ref.child("Stats").child(self.uid!).child(self.currentMonth).child("Total").child("Times Used").setValue(tu)
+        }
         
         
-//        if(Amount < 0){
-//            self.ref.child("Spendings").child(self.uid!).child(self.currentMonth).child(description).child("sign").setValue("+")
-//        }else{
-//            self.ref.child("Spendings").child(self.uid!).child(self.currentMonth).child(description).child("sign").setValue("-")
-//        }
-    
+       
+        //self.ref.child("Spendings").child(self.uid!).child(self.currentMonth).child(result).child("Amount").setValue(amount)
+        
         
         }
+    func getAmountDates(completion: @escaping (String, String) -> Void, description: String) {
+        var amountArray: Array<String> = []
+        var dateArray: Array<String> = []
+        self.ref.child("Spendings").child(self.uid!).child(self.currentMonth).child(description).observeSingleEvent(of: .value) { (snapshot) in
+            let value = snapshot.value as! NSDictionary
+            let amount = value["Amount"] as! Double
+            let date = value["Date"] as! String
+            var amountVal = String(amount)
+
+//            amountArray.append(amountVal)
+//            dateArray.append(date)
+//            print("FUN SHIT",amountArray, dateArray)
+            completion(amountVal, date)
+        }
+        
+    }
     
     func getAllTransactions(completion: @escaping (Array<String>) -> Void) {
         self.ref.child("Spendings").child(uid!).child(currentMonth).observeSingleEvent(of: .value) { (snapshot) in
             let enumerator = snapshot.children
-            var childrenArray: Array<String> = []
+            var dateArray: Array<String> = []
             while let rest = enumerator.nextObject() as? DataSnapshot {
                 //if rest.value == nil {
-                childrenArray.append(rest.key)
+                dateArray.append(rest.key)
+
                 //}
                 
             }
-            completion(childrenArray)
+            completion(dateArray)
         }
     }
+    
+//    func getSpendings(completion: @escaping () {
+//
+//    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   ///////    Testing functions
+    
+    
+    func addToCheckings(amount: String) {
+        
+        let Amount = NSDecimalNumber(string: amount)
+        self.ref.child("Account Data").child(uid!).child(currentMonth).observeSingleEvent(of: .value) {(snapshot) in
+            let value = snapshot.value as! NSDictionary
+            let checkings = value["Checkings"] as! NSDecimalNumber
+            let check = String(describing: checkings)
+            self.ref.child("Account Data").child(self.uid!).child(self.currentMonth).child("Checkings").setValue(Amount)
+            
+        }
         
     }
+    
+    func addToCash(amount: String) {
+        
+        self.ref.child("Account Data").child(uid!).child(currentMonth).observeSingleEvent(of: .value) {(snapshot) in
+            let value = snapshot.value as! NSDictionary
+            let cash = value["Cash"] as! String
+            
+            let temp_catAmt = Money(amt: cash, currency: .USD)
+            let temp_changeAmt = Money(amt: amount, currency: .USD)
+            let temp_total = temp_catAmt + temp_changeAmt
+
+            self.ref.child("Account Data").child(self.uid!).child(self.currentMonth).child("Cash").setValue(String(temp_total.amount))
+            
+        }
+        
+    }
+    
+    
+    func addToSavings(amount: String) {
+        
+        let Amount = NSDecimalNumber(string: amount)
+        self.ref.child("Account Data").child(uid!).child(currentMonth).observeSingleEvent(of: .value) {(snapshot) in
+            let value = snapshot.value as! NSDictionary
+            let checkings = value["Savings"] as! NSDecimalNumber
+            let check = String(describing: checkings)
+            self.ref.child("Account Data").child(self.uid!).child(self.currentMonth).child("Savings").setValue(Amount)
+            
+        }
+        
+    }
+    
+}
 
     
 

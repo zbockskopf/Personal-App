@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import HockeySDK
 
 @UIApplicationMain
 //add GIDSignInDelegate back in
@@ -23,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate  {
         
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
+        
+        BITHockeyManager.shared().configure(withIdentifier: "APP_IDENTIFIER")
+        BITHockeyManager.shared().start()
+        BITHockeyManager.shared().authenticator.authenticateInstallation() // This line is obsolete in the crash only builds
         return true
     }
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])

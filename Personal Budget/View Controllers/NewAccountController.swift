@@ -193,6 +193,7 @@ class NewAccountController: UIViewController {
             inputContainer.addSubview(amountTextField)
             
             setupAmountTextField()
+            db.setMonth(month: month!)
             
         case "Category":
             let cat = monthTextField.text
