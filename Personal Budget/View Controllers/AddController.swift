@@ -28,10 +28,7 @@ class AddController: UIViewController, UITextFieldDelegate, UITableViewDataSourc
     var allChildren: Array<String> = []
     var selectedCategory: String = ""
     
-    let alert: UIAlertController = {
-        let a = UIAlertController(title: "", message: "Enter an amount", preferredStyle: .alert)
-        return a
-    }()
+
     
     
     override func viewDidLoad() {
@@ -51,7 +48,10 @@ class AddController: UIViewController, UITextFieldDelegate, UITableViewDataSourc
     
     
     func setupAlert() {
-        
+        let alert: UIAlertController = {
+            let a = UIAlertController(title: "", message: "Enter an amount", preferredStyle: .alert)
+            return a
+        }()
         alert.title = selectedCategory
         alert.addTextField { (textfield) in
             textfield.placeholder = "Description"
@@ -61,16 +61,16 @@ class AddController: UIViewController, UITextFieldDelegate, UITableViewDataSourc
             
             //textfield.keyboardType = .numberPad
         }
-        alert.addAction(UIAlertAction(title: "ok", style: .default, handler: { [weak alert](_) in
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Ck", style: .default, handler: { [weak alert](_) in
             let descrptionTF = alert?.textFields![0]
             let amountTF = alert?.textFields![1]
 
             self.db.addToCategory(category: self.selectedCategory, changeAmount: (amountTF?.text)!)
             self.db.addToSpendings(description: (descrptionTF?.text)!, category: self.selectedCategory, amount: (amountTF?.text)!)
-
-            //makeChanges(selectedCategory: self.selectedCategory, category: <#String#>, changeAmount: <#String#>, subcat: <#String?#>)
+           
         }))
-
+        self.present(alert, animated: true, completion: nil)
     }
     
     
@@ -107,6 +107,6 @@ class AddController: UIViewController, UITextFieldDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedCategory = String(describing: allChildren[indexPath.row])
         setupAlert()
-        self.present(alert, animated: true, completion: nil)
+        
     }
 }

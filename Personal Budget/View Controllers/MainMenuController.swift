@@ -391,12 +391,12 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
         //
         //        present(TableViewCon, animated: true, completion: nil)
         
-        if(indexPath.row == 3){
-//            let SpendCon = SpendingsController()
-//            //self.present(SpendCon, animated: true, completion: nil)
-//            self.performSegue(withIdentifier: "goToSpendings", sender: nil)
-            let chartController = ChartViewController()
-            self.present(chartController, animated: true, completion: nil)
+        if(indexPath.row == 1){
+            let SpendCon = SpendingsController()
+            //self.present(SpendCon, animated: true, completion: nil)
+            self.performSegue(withIdentifier: "goToSpendings", sender: nil)
+//            let chartController = ChartViewController()
+//            self.present(chartController, animated: true, completion: nil)
         }else{
             let NewMonthCon = NewAccountController()
             //self.present(NewMonthCon, animated: true, completion: nil)
