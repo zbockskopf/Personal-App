@@ -29,6 +29,7 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var checkAmLbl: UILabel!
     @IBOutlet weak var savAmLbl: UILabel!
     @IBOutlet weak var cashAmLbl: UILabel!
+    @IBOutlet weak var creditLbl: UILabel!
     
     //Variables
     var ref: DatabaseReference!
@@ -42,39 +43,17 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
         checkIfUserIsLoggedIn()
-        ref = Database.database().reference()
-        print(Auth.auth().currentUser?.uid)
-//        ref.child("Account Data").child(uid!).child("February 2018").child("Savings").setValue("12.31")
-//        ref.child("Account Data").child(uid!).child("February 2018").child("Cash").setValue(String("0.01"))
-//        ref.child("Account Data").child(uid!).child("February 2018").child("Checkings").setValue(String("0.01"))
+//        ref = Database.database().reference()
+//        ref.child("Account Data").child(uid!).child("March 2018").child("Savings").setValue("1244.29")
+//        ref.child("Account Data").child(uid!).child("March 2018").child("Cash").setValue(String("0"))
+//        ref.child("Account Data").child(uid!).child("March 2018").child("Checkings").setValue(String("69.64"))
+//        ref.child("Account Data").child(uid!).child("March 2018").child("Credit Card").setValue(String("54.26"))
         
-        //getAllChildren()
-        //populateSideMenu()
-        //db.setMonth(month: "February 2018")
-//        var currentMonth: String = ""
-//        db.getMonth { (month) in
-//            currentMonth = month!
-//        }
-        //db.addToSpendings(description: "test item", category: "Cash", Amount: "1000.00")
-        
-        //db.addToCash(amount: "-287.54")
-        //db.addToCheckings(amount: "-2561.85")
-        //db.addToCheckings(amount: "2561.85")
-        
-        //db.addToCategory(category: "Savings", changeAmount: -1244.29)
-        //db.addToCheckings(amount: "200")
-        //db.setMonth(month: "February 2018")
         //logout()
         
-        let x = Money(amt: "0.01", currency: .USD)
-        let y = Money(amt: "0.5", currency: .USD)
-        let z = x + y
-        print(z.amount)
-        //db.getMonth()
-        
-        //side menu
+//side menu
         self.sideMenu.layer.shadowOpacity = 1
         self.sideMenu.layer.shadowRadius = 6
         
@@ -105,6 +84,7 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
         readCheckings()
         readCash()
         readSavings()
+        readCredit()
 //        //getAllChildren()
         
         print("Side Menu Array", sideMenuArray)
@@ -113,25 +93,14 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
                         /*-Chart Functions-*/
     
     func pieChartUpdate() {
-//        let entry1 = PieChartDataEntry(value: Double(100), label: "#1")
-//        let entry2 = PieChartDataEntry(value: Double(200), label: "#2")
-//        let entry3 = PieChartDataEntry(value: Double(300), label: "#3")
-//        let dataSet = PieChartDataSet(values: [entry1, entry2, entry3], label: "Widget Types")
-//        let data = PieChartData(dataSet: dataSet)
-//        chartView.data = data
-        //chartView.chartDescription?.text = "Share of Widgets by Type"
-        
-        //All other additions to this function will go here
-        
-        //This must stay at end of function
-        //chartView.notifyDataSetChanged()
         
         // 2. generate chart data entries
         let checkings = Double(checkAmLbl.text!)
         let cash = Double(cashAmLbl.text!)
         let savings = Double(savAmLbl.text!)
-        let track = ["Checkings", "Cash", "Savings"]
-        let money = [checkings, cash, savings]
+        let credit = Double(creditLbl.text!)
+        let track = ["Checkings", "Cash", "Savings", "Credit"]
+        let money = [checkings, cash, savings, credit]
         
         var entries = [PieChartDataEntry]()
         for (index, value) in money.enumerated() {
@@ -260,7 +229,7 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
                 })
             }
         default:
-            print("Failied")
+            print("Failed")
             
         }
         
@@ -294,20 +263,7 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
 
     private func mailComposeController(controller: MFMailComposeViewController,
                                        didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-        
-                // Check the result or perform other tasks.
-                // Dismiss the mail compose view controller.
-//        switch result {
-//        case .cancelled:
-//            break
-//        case .saved:
-//            break
-//        case .sent:
-//            break
-//        case .failed:
-//            break
-//
-//        }
+    
         
         controller.presentingViewController?.dismiss(animated: true, completion: nil)
     }
@@ -330,7 +286,7 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
     func readSavings(){
         db.readSavings { (save) in
             self.savAmLbl.text = save!
-            self.pieChartUpdate()
+            
         }
     }
 
@@ -343,6 +299,13 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
 //        db.readCash { (cash) in
 //            self.cashAmLbl.text = cash!
 //        }
+    }
+    
+    func readCredit(){
+        db.readCategory(completion: { (amount) in
+            self.creditLbl.text? = amount!
+            self.pieChartUpdate()
+        }, category: "Credit Card")
     }
 
     
@@ -392,13 +355,13 @@ class MainMenuController: UIViewController, UITableViewDelegate, UITableViewData
         //        present(TableViewCon, animated: true, completion: nil)
         
         if(indexPath.row == 1){
-            let SpendCon = SpendingsController()
+            //let SpendCon = SpendingsController()
             //self.present(SpendCon, animated: true, completion: nil)
             self.performSegue(withIdentifier: "goToSpendings", sender: nil)
 //            let chartController = ChartViewController()
 //            self.present(chartController, animated: true, completion: nil)
         }else{
-            let NewMonthCon = NewAccountController()
+            //let NewMonthCon = NewAccountController()
             //self.present(NewMonthCon, animated: true, completion: nil)
             self.performSegue(withIdentifier: "goToNewMonth", sender: nil)
         }

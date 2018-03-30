@@ -194,11 +194,13 @@ class NewAccountController: UIViewController {
             
             setupAmountTextField()
             db.setMonth(month: month!)
+            db.setupStats(currentState: "Month", category: nil)
             
         case "Category":
             let cat = monthTextField.text
             let amount = amountTextField.text
             db.addCategory(category:cat! , amount: amount!)
+            db.setupStats(currentState: "Category", category: cat!)
         default:
             break
         }   
@@ -212,7 +214,7 @@ class NewAccountController: UIViewController {
     
     @objc func nextButtonClick() {
         
-        performSegue(withIdentifier: "goToMainMenuFromNewAccount", sender: nil)
+        performSegue(withIdentifier: "goToTabBarFromNewAccount", sender: nil)
     }
     
     
