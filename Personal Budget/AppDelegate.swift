@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import GoogleSignIn
-import HockeySDK
 
 @UIApplicationMain
 //add GIDSignInDelegate back in
@@ -25,9 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate  {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
-        BITHockeyManager.shared().configure(withIdentifier: "APP_IDENTIFIER")
-        BITHockeyManager.shared().start()
-        BITHockeyManager.shared().authenticator.authenticateInstallation() // This line is obsolete in the crash only builds
+        let defaults = UserDefaults.standard
+        let defaultValue = ["currentMonth" : ""]
+        defaults.register(defaults: defaultValue)
+        
         return true
     }
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
@@ -89,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate  {
 
                 //print("Saved user into firebase")
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let mainMenuController = storyboard.instantiateViewController(withIdentifier: "mainMenu")
+                let mainMenuController = storyboard.instantiateViewController(withIdentifier: "mainMenuTabBar")
                 self.window!.rootViewController = mainMenuController
                 self.window!.makeKeyAndVisible()
             })

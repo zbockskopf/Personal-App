@@ -17,9 +17,11 @@ class DataBase {
     }
     
     private var uid: String? = (Auth.auth().currentUser?.uid)!
-    private var currentMonth: String = "February 2018"
+    private var currentMonth: String = "March 2018"
 //    private var currentMonth: String {
-//        return getMonth()
+//        let defaults = UserDefaults.standard
+//        let token = defaults.string(forKey: "currentMonth")
+//        return token!
 //    }
     
     
@@ -101,18 +103,22 @@ class DataBase {
 //        }
 //    }
 //
-    func getMonth(){
-        var month: String = ""
-        self.ref.child("Current Month").observeSingleEvent(of: .value) { (snapshot) in
-            let value = snapshot.value as! NSDictionary
-            month = value[self.uid!] as! String
-        }
-        
-        currentMonth = month
-    }
+//    func getMonth(){
+//        var month: String = ""
+//        self.ref.child("Current Month").observeSingleEvent(of: .value) { (snapshot) in
+//            let value = snapshot.value as! NSDictionary
+//            month = value[self.uid!] as! String
+//        }
+//
+//        currentMonth = month
+//    }
     
     func setMonth(month: String) {
         ref.child("Current Month").child(self.uid!).setValue(month)
+        let defaults = UserDefaults.standard
+        defaults.set(month, forKey: "currentMonth")
+        defaults.synchronize()
+        print("called")
     }
     
     func createNewMonth(month: String) {
@@ -167,15 +173,12 @@ class DataBase {
 /*---------------------Spendings Functions------------------------*/
     func addToSpendings(description: String, category: String, amount: String) {
         
-        
-
-        
         let date = Date()
         let formater = DateFormatter()
         formater.dateFormat = "MM-dd"
         let day = formater.string(from: date)
         
-        
+        self.ref.child("Stats").child(self.uid!)
         self.ref.child("Spendings").child(self.uid!).child(self.currentMonth).child(day).child(category).child(description).setValue(amount)
         self.ref.child("Stats").child(self.uid!).child(self.currentMonth).child(category).observeSingleEvent(of: .value) { (snapshot) in
             let value = snapshot.value as! NSDictionary
@@ -245,9 +248,16 @@ class DataBase {
         }
     }
     
-//    func getSpendings(completion: @escaping () {
-//
-//    }
+    func getAllCategories(completion: @escaping (Array<String>) -> Void) {
+        var categoryArray: Array<String> = []
+        
+        self.ref.child("Account Data").child(uid!).child(currentMonth).observeSingleEvent(of: .value) { (snapshot) in
+            let dict = snapshot.value as! NSDictionary
+            categoryArray = dict.allKeys as! Array<String>
+            
+            completion(categoryArray)
+        }
+    }
     
     
     
@@ -299,6 +309,18 @@ class DataBase {
             let check = String(describing: checkings)
             self.ref.child("Account Data").child(self.uid!).child(self.currentMonth).child("Savings").setValue(Amount)
             
+        }
+        
+    }
+    
+    func setupStats(currentState: String, category: String?) {
+        
+        if currentState == "Month" {
+            self.ref.child("Stats").child(uid!).child(currentMonth).child("Total").child("Times Used").setValue(0)
+        self.ref.child("Stats").child(self.uid!).child(self.currentMonth).child("Total").child("Total").setValue("0")
+        }else{
+            self.ref.child("Stats").child(uid!).child(currentMonth).child(category!).child("Times Used").setValue(0)
+            self.ref.child("Stats").child(self.uid!).child(self.currentMonth).child(category!).child("Total").setValue("0")
         }
         
     }
