@@ -29,6 +29,7 @@ class MainMenuController2:  UIViewController {
     let cashBtn: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
+//        button.backgroundColor = UIColor.green
         return button
     }()
     

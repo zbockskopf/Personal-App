@@ -247,8 +247,6 @@
 				F20F1C5D1F94273A00059BAA /* Sources */,
 				F20F1C5E1F94273A00059BAA /* Frameworks */,
 				F20F1C5F1F94273A00059BAA /* Resources */,
-				837FA0C38A97C0F361789C38 /* [CP] Embed Pods Frameworks */,
-				869743034B5C5332BDB40175 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -268,8 +266,6 @@
 				F20F1C681F94273A00059BAA /* Sources */,
 				F20F1C691F94273A00059BAA /* Frameworks */,
 				F20F1C6A1F94273A00059BAA /* Resources */,
-				9134978C860245EA54347250 /* [CP] Embed Pods Frameworks */,
-				810C7AED355647A69ED5324D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -395,56 +391,11 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Personal Budget/Pods-Personal Budget-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		810C7AED355647A69ED5324D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Personal BudgetUITests/Pods-Personal BudgetUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		837FA0C38A97C0F361789C38 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Personal BudgetTests/Pods-Personal BudgetTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		869743034B5C5332BDB40175 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Personal BudgetTests/Pods-Personal BudgetTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8DDC7E6396171D08E12E2F0E /* [CP] Check Pods Manifest.lock */ = {
@@ -463,21 +414,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9134978C860245EA54347250 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Personal BudgetUITests/Pods-Personal BudgetUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B7C9CC94D7B22D6F608058ED /* [CP] Check Pods Manifest.lock */ = {
