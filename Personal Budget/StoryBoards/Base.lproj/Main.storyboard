@@ -54,7 +54,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zv8-Qg-Ijw">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zv8-Qg-Ijw">
                                 <rect key="frame" x="16" y="140" width="343" height="638"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -67,14 +67,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="8Ug-dg-IHF"/>
                     </view>
+                    <tabBarItem key="tabBarItem" id="a1q-RV-5sc"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="descriptionTable" destination="zv8-Qg-Ijw" id="vqz-6f-ULy"/>
-                        <outlet property="transactionTable" destination="zv8-Qg-Ijw" id="Ptx-Z8-s2Q"/>
+                        <outlet property="transactionTable" destination="zv8-Qg-Ijw" id="dw0-Y9-EJf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dr4-cs-3Am" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3132" y="-647.29064039408865"/>
+            <point key="canvasLocation" x="-954" y="638"/>
         </scene>
         <!--OverView-->
         <scene sceneID="c54-HV-Dzl">
@@ -131,6 +132,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3a-R7-eWK">
+                                <rect key="frame" x="145" y="626" width="81" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Credit Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUK-UG-REp">
+                                <rect key="frame" x="145" y="597" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRi-CQ-eIC" userLabel="Side Menu">
                                 <rect key="frame" x="-210" y="44" width="190" height="748"/>
                                 <subviews>
@@ -166,20 +181,6 @@
                                     <constraint firstAttribute="width" constant="190" id="C99-9r-0Cc"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3a-R7-eWK">
-                                <rect key="frame" x="145" y="626" width="81" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Credit Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUK-UG-REp">
-                                <rect key="frame" x="145" y="597" width="88" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -286,6 +287,7 @@
                     <connections>
                         <segue destination="k2M-Oc-fsA" kind="relationship" relationship="viewControllers" id="t4d-U4-b7O"/>
                         <segue destination="EWb-ir-JH5" kind="relationship" relationship="viewControllers" id="6Nb-IH-iWQ"/>
+                        <segue destination="f2F-3Z-olZ" kind="relationship" relationship="viewControllers" id="rj7-uA-PrY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDC-oy-smp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -295,6 +297,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Fhc-kS-Qli"/>
+        <segue reference="Flv-XP-lGg"/>
         <segue reference="VzV-Dh-QEu"/>
     </inferredMetricsTieBreakers>
 </document>

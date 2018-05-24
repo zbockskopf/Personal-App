@@ -16,9 +16,10 @@ import FirebaseAuth
 
 class SpendingsController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
-    let label: UILabel = {
+    var db = DataBase()
+    
+    let monthLbl: UILabel = {
         let l = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
-        l.text = "Enter current month"
         l.translatesAutoresizingMaskIntoConstraints = false
         return l
     }()
@@ -27,23 +28,54 @@ class SpendingsController: UIViewController, UITableViewDataSource, UITableViewD
 
     @IBOutlet weak var transactionTable: UITableView!
     
-    var db = DataBase()
-    var transactionsDict: Array<String> = []
+
+    var transactions: Array<String> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(label)
-        //populateTable()
+        
+        view.addSubview(monthLbl)
+        
+        setupMonthLbl()
+        
+        
+        
+        
+    
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        populateTable()
     }
     
-//    func populateTable() {
+    func setupMonthLbl(){
+        monthLbl.text = db.getMonth()
+        monthLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        monthLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+    }
+    
+    func populateTable() {
+        db.getAllMonthlyTransactions(completion: { (transArray) in
+//            for (key, value) in transDict{
+//                var temp: String = ""
+//                for i in value{
+//                    temp += i.0
+//                    temp += i.1
+//                    temp += i.2
+//                }
 //
 //
+//                self.transactions.append(temp)
+//            }
+            print("Transactions", transArray)
+            self.transactions = transArray
+            DispatchQueue.main.async{
+                self.transactionTable.reloadData()
+            }
+        })
+
+
 //        db.getAllTransactions { (description) in
 //            self.allDescriptions = description
 //            for des in self.allDescriptions {
@@ -53,11 +85,12 @@ class SpendingsController: UIViewController, UITableViewDataSource, UITableViewD
 //                    print(dates, amounts)
 //                }, description: des)
 //            }
-//            DispatchQueue.main.async{
-//                self.descriptionTable.reloadData()
-//            }
+//                    }
+//        DispatchQueue.main.async{
+//            self.descriptionTable.reloadData()
 //        }
-//    }
+        
+    }
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -66,13 +99,9 @@ class SpendingsController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        //return sideMenuArray.count
-//        if tableView == descriptionTable {
-//            return allDescriptions.count
-//        }
-
         
-        return 1
+        
+        return transactions.count
         
     }
     
@@ -82,9 +111,9 @@ class SpendingsController: UIViewController, UITableViewDataSource, UITableViewD
         let cell = UITableViewCell()
         
         
-//        if tableView == descriptionTable{
-//            cell.textLabel?.text = String(describing: allDescriptions[indexPath.row])
-//        }
+        if tableView == transactionTable{
+            cell.textLabel?.text = String(describing: transactions[indexPath.row])
+        }
         
         
         

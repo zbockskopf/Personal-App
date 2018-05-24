@@ -112,7 +112,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
         print("At login screen")
         
         
-// Check if user is logged 
+// Check if user is logged in
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if user != nil && user?.uid != nil{
                 //self.performSegue(withIdentifier: "goToMainMenu", sender: nil)
@@ -278,7 +278,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
             print("Created User")
             
             self.ref = Database.database().reference()
-            guard let uid = user?.uid else { return }
+            guard let uid = user?.user.uid else { return }
             let userReference = self.ref.child("Users").child(uid)
             let values = ["name": name, "email" : email]
             userReference.updateChildValues(values, withCompletionBlock: { (err, ref) in

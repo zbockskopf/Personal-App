@@ -11,6 +11,7 @@
 		3E45DAFF23B21878A500F6FF /* Pods_Personal_BudgetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945FF86BA231ED3FFD52C02D /* Pods_Personal_BudgetUITests.framework */; };
 		858684A11E57BEF418D2FC28 /* Pods_Personal_Budget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420E49C9770317A2477DD894 /* Pods_Personal_Budget.framework */; };
 		F2014D02202D4B5E00E28142 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2014D01202D4B5E00E28142 /* Money.swift */; };
+		F2037D6220B540C10067E76C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2037D6120B540C10067E76C /* Extensions.swift */; };
 		F20F1C511F94273A00059BAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20F1C501F94273A00059BAA /* AppDelegate.swift */; };
 		F20F1C561F94273A00059BAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F20F1C541F94273A00059BAA /* Main.storyboard */; };
 		F20F1C581F94273A00059BAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F20F1C571F94273A00059BAA /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		AC9D371D7DF321D629C1A7C8 /* Pods-Personal BudgetUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal BudgetUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Personal BudgetUITests/Pods-Personal BudgetUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EC8C542310FA05C808D04863 /* Pods-Personal BudgetUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Personal BudgetUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Personal BudgetUITests/Pods-Personal BudgetUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F2014D01202D4B5E00E28142 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
+		F2037D6120B540C10067E76C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F20F1C4D1F94273A00059BAA /* Personal Budget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personal Budget.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F20F1C501F94273A00059BAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F20F1C551F94273A00059BAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			children = (
 				F2BEB1B01F9D4E4600A3BFD6 /* DataBase.swift */,
 				F2014D01202D4B5E00E28142 /* Money.swift */,
+				F2037D6120B540C10067E76C /* Extensions.swift */,
 			);
 			path = "Swift Classes";
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				F26192B3203AB04100D1B571 /* ChartViewController.swift in Sources */,
 				F24636F11F99B75B00B5EB2D /* MainMenuController.swift in Sources */,
 				F2BEB1B11F9D4E4600A3BFD6 /* DataBase.swift in Sources */,
+				F2037D6220B540C10067E76C /* Extensions.swift in Sources */,
 				F24636F31F99CA3B00B5EB2D /* AddController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -635,6 +639,7 @@
 			baseConfigurationReference = 25A95D03A8BC7E38F354A954 /* Pods-Personal Budget.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B6CP63MQWE;
@@ -654,6 +659,7 @@
 			baseConfigurationReference = 0227ED621DD256AC877B3275 /* Pods-Personal Budget.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B6CP63MQWE;

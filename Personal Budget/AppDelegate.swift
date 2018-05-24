@@ -61,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate  {
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
         // ...
-        if let err = error {
+        if error != nil {
             print("Failed to log into Google: ", error)
             return
         }
@@ -71,17 +71,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate  {
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                        accessToken: authentication.accessToken)
 
-        Auth.auth().signIn(with: credential) { (authUser, error) in
+        Auth.auth().signInAndRetrieveData(with: credential) { (authUser, error) in
             if let err = error {
                 print("Failed to create a firebase user with google account: ", err)
                 return
             }
 
             let ref = Database.database().reference()
-            guard let uid = authUser?.uid else { return }
+            guard let uid = authUser?.user.uid else { return }
             let userReference = ref.child("Users").child(uid)
             let values = ["name": user.profile.name, "email" : user.profile.email]
-            userReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+            userReference.updateChildValues(values as Any as! [AnyHashable : Any], withCompletionBlock: { (err, ref) in
                 if err != nil {
                     print(err as Any)
                     return

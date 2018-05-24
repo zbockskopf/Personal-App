@@ -17,12 +17,12 @@ class DataBase {
     }
     
     private var uid: String? = (Auth.auth().currentUser?.uid)!
-    private var currentMonth: String = "March 2018"
-//    private var currentMonth: String {
-//        let defaults = UserDefaults.standard
-//        let token = defaults.string(forKey: "currentMonth")
-//        return token!
-//    }
+    //private var currentMonth: String = "May 2018"
+    private var currentMonth: String {
+        let defaults = UserDefaults.standard
+        let token = defaults.string(forKey: "currentMonth")
+        return token!
+    }
     
     
     
@@ -113,6 +113,10 @@ class DataBase {
 //        currentMonth = month
 //    }
     
+    func getMonth() -> String{
+        return currentMonth
+    }
+    
     func setMonth(month: String) {
         ref.child("Current Month").child(self.uid!).setValue(month)
         let defaults = UserDefaults.standard
@@ -179,7 +183,7 @@ class DataBase {
         let day = formater.string(from: date)
         
         self.ref.child("Stats").child(self.uid!)
-        self.ref.child("Spendings").child(self.uid!).child(self.currentMonth).child(day).child(category).child(description).setValue(amount)
+    self.ref.child("Spendings").child(self.uid!).child(self.currentMonth).child(day).child(description).child(category).setValue(amount)
         self.ref.child("Stats").child(self.uid!).child(self.currentMonth).child(category).observeSingleEvent(of: .value) { (snapshot) in
             let value = snapshot.value as! NSDictionary
             var tu = value["Times Used"] as! Int
@@ -233,18 +237,67 @@ class DataBase {
         
     }
     
-    func getAllTransactions(completion: @escaping (Array<String>) -> Void) {
+    func getAllDateTransactions(completion: @escaping ([String: Array<(String,String,String)>]) -> Void, dateArray: Array<String>) {
+        var dateDict: [String: Array<(String,String,String)>] = [:]
+        for i in dateArray{
+            dateDict[i] = []
+            self.ref.child("Spendings").child(self.uid!).child(self.currentMonth).child(i).observeSingleEvent(of: .value, with: { (snap) in
+                
+                let val = snap.value as! NSDictionary
+                let descriptions = val.allKeys
+                for x in descriptions{
+                    self.ref.child("Spendings").child(self.uid!).child(self.currentMonth).child(i).child(x as! String).observeSingleEvent(of: .value, with: { (snap) in
+                        let test = snap.value as! NSDictionary
+                        let cat = test.allKeys
+                        let amount = test.allValues
+                        var transaction: (String,String,String)
+                        transaction = (x as! String,cat[0] as! String, amount[0] as! String)
+                        dateDict[i]?.append(transaction)
+                        print(dateDict)
+                        completion(dateDict)
+                    })
+                }
+                
+            })
+            
+        }
+        
+    }
+    
+    func getAllMonthlyTransactions(completion: @escaping (Array<String>) -> Void) {
         self.ref.child("Spendings").child(uid!).child(currentMonth).observeSingleEvent(of: .value) { (snapshot) in
-            let enumerator = snapshot.children
-            var dateArray: Array<String> = []
-            while let rest = enumerator.nextObject() as? DataSnapshot {
-                //if rest.value == nil {
-                dateArray.append(rest.key)
-
-                //}
+//            let enumerator = snapshot.children
+//            var dateArray: Array<String> = []
+//
+//            while let rest = enumerator.nextObject() as? DataSnapshot {
+//                dateArray.append(rest.key)
+//            }
+//            self.getAllDateTransactions(completion: {(dateDict) in
+//                completion(dateDict)
+//            }, dateArray: dateArray)
+            
+            var transArray: Array<String> = []
+            for child in snapshot.children {
+                let snap = child as! DataSnapshot
+                let key = snap.key
+                let val = snap.value as! NSDictionary
+                for i in val{
+                    var temp: String = ""
+                    temp += i.key as! String
+                    var x = i.value as! NSDictionary
+                    temp += " "
+                    temp += x.allKeys[0] as! String
+                    temp += " "
+                    temp += x.allValues[0] as! String
+                    transArray.append(temp)
+                }
+                print("key = \(key)  value = \(val["test"])")
+                //print(value.key, "    ", value)
                 
             }
-            completion(dateArray)
+            
+            //print("get all transactions" ,dateDict)
+            completion(transArray)
         }
     }
     

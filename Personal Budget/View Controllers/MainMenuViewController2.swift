@@ -70,9 +70,18 @@ class MainMenuController2:  UIViewController {
         setupCreditButton()
         setupCheckingButton()
         
-        //db.setMonth(month: "March 2018")
+        //db.setMonth(month: "test")
+        //db.setMonth(month: "May 2018")
+        //logoutBtn()
         
         
+    }
+    
+    func logoutBtn() {
+        let isLoggedOut = logout()
+        if isLoggedOut {
+            self.performSegue(withIdentifier: "goToLoginScreen", sender: nil)
+        }
     }
     
     func checkIfUserIsLoggedIn(){
@@ -204,6 +213,7 @@ class MainMenuController2:  UIViewController {
         alert.title = categoryName
         alert.addTextField { (textfield) in
             textfield.placeholder = "Description"
+            //textfield.addTarget(alert, action: #selector(), for: .editingChangeD)
         }
         alert.addTextField { (textfield) in
             textfield.placeholder = "Amount"
@@ -211,14 +221,16 @@ class MainMenuController2:  UIViewController {
             //textfield.keyboardType = .numberPad
         }
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [weak alert](_) in
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: { [weak alert](_) in
             let descrptionTF = alert?.textFields![0]
             let amountTF = alert?.textFields![1]
             
             self.db.addToCategory(category: categoryName, changeAmount: (amountTF?.text)!)
             self.db.addToSpendings(description: (descrptionTF?.text)!, category: categoryName, amount: (amountTF?.text)!)
             
-        }))
+        })
+        okAction.isEnabled = false
+        alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
     

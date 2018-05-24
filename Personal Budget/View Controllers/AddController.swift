@@ -62,7 +62,7 @@ class AddController: UIViewController, UITextFieldDelegate, UITableViewDataSourc
             //textfield.keyboardType = .numberPad
         }
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Ck", style: .default, handler: { [weak alert](_) in
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { [weak alert](_) in
             let descrptionTF = alert?.textFields![0]
             let amountTF = alert?.textFields![1]
 
